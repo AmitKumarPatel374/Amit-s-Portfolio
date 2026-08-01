@@ -1,5 +1,30 @@
 export const experienceData = [
   {
+    type: "Personal Project",
+
+    title: "ResuInstant - AI Resume Builder",
+
+    date: "2025",
+
+    description:
+      "AI-powered resume builder that creates ATS-friendly resumes using Gemini AI with real-time suggestions and resume scoring.",
+
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Gemini AI", "Tailwind CSS"],
+  },
+
+  {
+    type: "Personal Project",
+
+    title: "ShopMaster",
+
+    date: "2025",
+
+    description:
+      "A complete MERN eCommerce platform featuring authentication, Razorpay payments, admin dashboard, product management, and order tracking.",
+
+    technologies: ["React", "Node.js", "MongoDB", "Express", "JWT", "Razorpay"],
+  },
+  {
     type: "Full Stack Developer Intern",
     title: "Sheryians Private Limited",
     date: "Jan 2024 — Present",
@@ -32,32 +57,6 @@ export const experienceData = [
         description: "Worked in Agile teams using Git, GitHub, code reviews, and task management.",
       },
     ],
-  },
-
-  {
-    type: "Personal Project",
-
-    title: "ResuInstant - AI Resume Builder",
-
-    date: "2025",
-
-    description:
-      "AI-powered resume builder that creates ATS-friendly resumes using Gemini AI with real-time suggestions and resume scoring.",
-
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Gemini AI", "Tailwind CSS"],
-  },
-
-  {
-    type: "Personal Project",
-
-    title: "ShopMaster",
-
-    date: "2025",
-
-    description:
-      "A complete MERN eCommerce platform featuring authentication, Razorpay payments, admin dashboard, product management, and order tracking.",
-
-    technologies: ["React", "Node.js", "MongoDB", "Express", "JWT", "Razorpay"],
   },
 
   {

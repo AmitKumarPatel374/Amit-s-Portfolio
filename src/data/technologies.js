@@ -1,43 +1,45 @@
-import {
-  FaReact,
-  FaNodeJs,
-  FaDatabase,
-} from "react-icons/fa";
-
+import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa";
+import { TbBrandOpenai } from "react-icons/tb";
 import {
   SiNextdotjs,
   SiTypescript,
   SiRedis,
-  SiOpenai,
 } from "react-icons/si";
 
 export const technologies = [
   {
     name: "React",
-    icon: <FaReact className="text-sky-400" />,
+    icon: FaReact,
+    color: "text-sky-400",
   },
   {
     name: "Next.js",
-    icon: <SiNextdotjs className="text-white" />,
+    icon: SiNextdotjs,
+    color: "text-white",
   },
   {
     name: "Node.js",
-    icon: <FaNodeJs className="text-green-500" />,
+    icon: FaNodeJs,
+    color: "text-green-500",
   },
   {
     name: "MongoDB",
-    icon: <FaDatabase className="text-green-400" />,
+    icon: FaDatabase,
+    color: "text-green-400",
   },
   {
     name: "TypeScript",
-    icon: <SiTypescript className="text-blue-500" />,
+    icon: SiTypescript,
+    color: "text-blue-500",
   },
   {
     name: "Redis",
-    icon: <SiRedis className="text-red-500" />,
+    icon: SiRedis,
+    color: "text-red-500",
   },
   {
     name: "AI",
-    icon: <SiOpenai className="text-violet-400" />,
+    icon: TbBrandOpenai,
+    color: "text-violet-400",
   },
 ];

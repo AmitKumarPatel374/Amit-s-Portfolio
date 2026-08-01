@@ -1,149 +1,208 @@
+import { useEffect, useRef, useState } from "react"
+import "./Experience.css"
 import { experienceData } from "../../data/experience"
 
 const Experience = () => {
+  const sectionRef = useRef(null)
+  const lineRef = useRef(null)
+
+  const [lineHeight, setLineHeight] = useState(0)
+
+  useEffect(() => {
+    const updateLine = () => {
+      if (!sectionRef.current || !lineRef.current) return
+
+      const section = sectionRef.current
+
+      const rect = section.getBoundingClientRect()
+
+      const windowHeight = window.innerHeight
+
+      const totalHeight = section.offsetHeight
+
+      const start = windowHeight * 0.2
+
+      const end = windowHeight * 0.8
+
+      let progress = (end - rect.top) / (totalHeight + end - start)
+
+      progress = Math.max(0, Math.min(progress, 1))
+
+      setLineHeight(progress * 100)
+    }
+
+    updateLine()
+
+    window.addEventListener("scroll", updateLine)
+
+    window.addEventListener("resize", updateLine)
+
+    return () => {
+      window.removeEventListener("scroll", updateLine)
+      window.removeEventListener("resize", updateLine)
+    }
+  }, [])
+
   return (
     <section
+      ref={sectionRef}
       id="experience"
-      className="relative overflow-hidden py-32"
+      className="relative overflow-hidden bg-[#0B1120] py-40"
     >
-      {/* Background */}
+      {/* ================= Background ================= */}
 
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[140px]" />
+      <div className="experience-bg absolute inset-0 -z-10">
+        <div className="absolute left-[-260px] top-0 h-[650px] w-[650px] rounded-full bg-[#4D8EFF]/10 blur-[170px]" />
 
-        <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-violet-500/10 blur-[150px]" />
+        <div className="absolute right-[-260px] bottom-0 h-[650px] w-[650px] rounded-full bg-violet-500/10 blur-[180px]" />
+
+        <div className="experience-grid absolute inset-0 opacity-[0.04]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Heading */}
+      <div className="relative z-10 mx-auto max-w-[1280px] px-10">
+        {/* ================= Heading ================= */}
 
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-400">
+        <div className="experience-heading mx-auto max-w-[900px] text-center">
+          <span className="font-mono text-[13px] font-semibold uppercase tracking-[0.28em] text-[#ADC6FF]">
             Experience
-          </p>
+          </span>
 
-          <h2 className="mt-6 text-5xl font-bold leading-tight text-white">
+          <h2 className="mt-7 text-[50px] font-bold leading-[1.08] tracking-[-0.03em] text-white xl:text-[60px]">
             Building production-ready software through real-world engineering experience.
           </h2>
 
-          <p className="mt-8 text-lg leading-8 text-slate-400">
+          <p className="mx-auto mt-6 max-w-[760px] text-[18px] leading-9 text-slate-400">
             Solving complex engineering challenges by combining scalable backend architectures with
             modern frontend engineering.
           </p>
         </div>
 
-        {/* Timeline */}
+        {/* ================= Timeline ================= */}
 
-        <div className="relative mt-24">
-          {/* Line */}
+        <div className="relative mt-32">
+          {/* Vertical Line */}
 
-          <div className="absolute left-5 top-0 h-full w-[2px] bg-white/10 lg:left-1/2 lg:-translate-x-1/2" />
-
+          <div className="absolute left-6 top-0 h-full w-[2px] bg-white/10 lg:left-1/2 lg:-translate-x-1/2">
+            <div
+              ref={lineRef}
+              className="timeline-fill absolute top-0 left-0 w-full rounded-full bg-gradient-to-b from-[#ADC6FF] via-[#7C3AED] to-[#4D8EFF]"
+              style={{
+                height: `${lineHeight}%`,
+              }}
+            />
+          </div>
           {experienceData.map((item, index) => {
-            const left = index % 2 === 0
+            const isLeft = index % 2 === 0
 
             return (
               <div
                 key={item.title}
-                className={`relative mb-28 flex ${left ? "lg:justify-start" : "lg:justify-end"}`}
+                className={`timeline-item relative mb-28 flex ${
+                  isLeft ? "lg:justify-start" : "lg:justify-end"
+                }`}
               >
-                {/* Timeline Dot */}
+                {/* ================= Timeline Dot ================= */}
 
                 <div
                   className="
+                    timeline-dot
                     absolute
-                    left-5
-                    top-10
+                    left-6
+                    top-12
                     h-5
                     w-5
                     rounded-full
-                    border-4
+                    border-[5px]
                     border-[#0B1120]
-                    bg-blue-400
-                    shadow-[0_0_20px_rgba(59,130,246,.7)]
+                    bg-[#191B23]
                     lg:left-1/2
                     lg:-translate-x-1/2
                   "
                 />
 
+                {/* ================= Card ================= */}
+
                 <div
-                  className="
+                  className={`
+                    experience-card
+                    relative
                     ml-16
                     w-full
-                    rounded-3xl
+                    rounded-[30px]
                     border
                     border-white/10
-                    bg-white/5
+                    bg-[#121826]/75
                     p-8
                     backdrop-blur-xl
-                    transition
-                    hover:-translate-y-2
-                    hover:border-blue-400
+
                     lg:ml-0
                     lg:w-[46%]
-                  "
+
+                    ${isLeft ? "card-left" : "card-right"}
+                  `}
                 >
-                  <span className="text-sm uppercase tracking-widest text-blue-400">
-                    {item.type}
-                  </span>
+                  {/* Top */}
 
-                  <h3 className="mt-3 text-3xl font-bold text-white">{item.title}</h3>
+                  <div className="flex items-center justify-between gap-5">
+                    <span className="rounded-full border border-[#ADC6FF]/20 bg-[#ADC6FF]/10 px-4 py-2 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[#ADC6FF]">
+                      {item.type}
+                    </span>
 
-                  <p className="mt-2 text-slate-500">{item.date}</p>
+                    <span className="text-sm text-slate-500">{item.date}</span>
+                  </div>
+
+                  {/* Title */}
+
+                  <h3 className="mt-4 text-[34px] font-bold tracking-[-0.03em] text-white">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
 
                   {item.description && (
-                    <p className="mt-6 leading-8 text-slate-400">{item.description}</p>
+                    <p className="mt-4 text-[16px] leading-8 text-slate-400">{item.description}</p>
                   )}
 
-                  {/* Skills */}
+                  {/* ================= Skills ================= */}
 
-                  <div className="mt-8 grid gap-4 md:grid-cols-2">
+                  <div className="mt-4 grid gap-5 md:grid-cols-2">
                     {item.skills?.map((skill) => (
                       <div
                         key={skill.title}
-                        className="
-                          rounded-2xl
-                          border
-                          border-white/10
-                          bg-[#111827]
-                          p-5
-                          transition
-                          hover:border-blue-400
-                        "
+                        className="skill-card rounded-2xl border border-white/10 bg-[#0F172A]/70 p-5"
                       >
-                        <h4 className="text-base font-semibold text-white">{skill.title}</h4>
+                        <h4 className="text-[17px] font-semibold text-white">{skill.title}</h4>
 
-                        <p className="mt-2 text-sm leading-6 text-slate-400">{skill.description}</p>
+                        <p className="mt-3 text-[14px] leading-7 text-slate-400">
+                          {skill.description}
+                        </p>
                       </div>
                     ))}
                   </div>
 
-                  {/* Technologies */}
+                  {/* ================= Technologies ================= */}
 
                   {item.technologies && (
-                    <div className="mt-8 flex flex-wrap gap-3">
+                    <div className="mt-10 flex flex-wrap gap-3">
                       {item.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="
-                            rounded-full
-                            border
-                            border-white/10
-                            bg-[#0f172a]
-                            px-4
-                            py-2
-                            text-sm
-                            text-slate-300
-                            transition
-                            hover:border-blue-400
-                            hover:text-white
-                          "
+                          className="tech-badge rounded-full border border-white/10 bg-[#0F172A] px-5 py-[10px] text-[13px] font-medium text-slate-300"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
                   )}
+                  {/* ================= Bottom Accent ================= */}
+
+                  <div className="mt-10 flex items-center gap-4">
+                    <div className="h-[2px] w-16 rounded-full bg-[#ADC6FF]" />
+
+                    <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500">
+                      Production Experience
+                    </span>
+                  </div>
                 </div>
               </div>
             )

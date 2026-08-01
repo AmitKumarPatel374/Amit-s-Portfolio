@@ -1,0 +1,200 @@
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience-heading {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.timeline-item {
+  opacity: 0;
+  animation: fadeUp 0.8s forwards;
+}
+
+.timeline-item:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.timeline-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.timeline-item:nth-child(4) {
+  animation-delay: 0.45s;
+}
+.timeline-item:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.experience-bg::before {
+  content: "";
+  position: absolute;
+  left: -280px;
+  top: -150px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(77, 142, 255, 0.13), transparent 70%);
+  filter: blur(100px);
+  animation: bgFloat1 12s ease infinite;
+}
+
+.experience-bg::after {
+  content: "";
+  position: absolute;
+  right: -280px;
+  bottom: -150px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12), transparent 70%);
+  filter: blur(110px);
+  animation: bgFloat2 12s ease infinite;
+}
+
+@keyframes bgFloat1 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes bgFloat2 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline-fill{
+
+transition:height .15s linear;
+
+box-shadow:
+0 0 18px rgba(77,142,255,.55);
+
+}
+
+.timeline-dot {
+  box-shadow: 0 0 0 rgba(173, 198, 255, 0.5);
+  animation: pulseDot 2.2s infinite;
+}
+
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(173, 198, 255, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(173, 198, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(173, 198, 255, 0);
+  }
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.experience-card {
+  transition: 0.45s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-10px);
+  border-color: #4d8eff;
+  box-shadow: 0 25px 60px rgba(77, 142, 255, 0.12);
+}
+
+.card-left:hover {
+  transform: translateY(-10px) translateX(-6px);
+}
+
+.card-right:hover {
+  transform: translateY(-10px) translateX(6px);
+}
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skill-card {
+  transition: 0.35s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: #4d8eff;
+  box-shadow: 0 15px 35px rgba(77, 142, 255, 0.12);
+}
+
+/* =========================================================
+   TECH BADGES
+========================================================= */
+
+.tech-badge {
+  transition: 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: #182235;
+  border-color: #4d8eff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+  .card-left:hover,
+  .card-right:hover {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-heading,
+  .timeline-item {
+    animation: none;
+    opacity: 1;
+  }
+
+  .timeline-fill {
+    display: none;
+  }
+
+  .card-left:hover,
+  .card-right:hover,
+  .experience-card:hover,
+  .skill-card:hover,
+  .tech-badge:hover {
+    transform: none;
+  }
+}

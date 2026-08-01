@@ -1,0 +1,211 @@
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about-left,
+.about-right {
+  opacity: 0;
+}
+
+.about-left {
+  animation: aboutLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.about-right {
+  animation: aboutRight 0.9s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes aboutLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.about-left img {
+  transition: 0.7s ease;
+}
+
+.group:hover img {
+  transform: scale(1.05);
+}
+
+.group {
+  transition: 0.45s ease;
+}
+
+.group:hover {
+  transform: translateY(-8px);
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.about-stat {
+  transition: 0.35s ease;
+}
+
+.about-stat:hover {
+  transform: translateY(-8px);
+
+  border-color: #4d8eff;
+
+  box-shadow: 0 20px 45px rgba(77, 142, 255, 0.15);
+}
+
+/* =========================================================
+   STRENGTH CARDS
+========================================================= */
+
+.strength-card {
+  transition: 0.4s ease;
+}
+
+.strength-card:hover {
+  transform: translateY(-10px);
+
+  border-color: #4d8eff;
+
+  box-shadow: 0 20px 45px rgba(77, 142, 255, 0.15);
+}
+
+.strength-card:hover svg {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.strength-card svg {
+  transition: 0.35s;
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-card {
+  transition: 0.45s ease;
+}
+
+.quote-card:hover {
+  transform: translateY(-8px);
+
+  border-color: #4d8eff;
+
+  box-shadow: 0 25px 60px rgba(77, 142, 255, 0.12);
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.about-bg::before {
+  content: "";
+
+  position: absolute;
+
+  left: -250px;
+
+  top: -150px;
+
+  width: 650px;
+
+  height: 650px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(77, 142, 255, 0.12), transparent 70%);
+
+  filter: blur(90px);
+
+  animation: blob1 12s ease infinite;
+}
+
+.about-bg::after {
+  content: "";
+
+  position: absolute;
+
+  right: -250px;
+
+  bottom: -150px;
+
+  width: 650px;
+
+  height: 650px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1), transparent 70%);
+
+  filter: blur(90px);
+
+  animation: blob2 12s ease infinite;
+}
+
+@keyframes blob1 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes blob2 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(30px);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+  .about-left {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-left,
+  .about-right {
+    animation: none;
+
+    opacity: 1;
+  }
+
+  .strength-card:hover,
+  .about-stat:hover,
+  .quote-card:hover {
+    transform: none;
+  }
+}
