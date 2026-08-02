@@ -7,6 +7,8 @@ import {
   FaBriefcase,
   FaFolderOpen,
   FaNodeJs,
+  FaLinkedin,
+  FaEnvelope,
 } from "react-icons/fa"
 
 import { SiReact, SiNextdotjs, SiMongodb, SiTypescript, SiRedis } from "react-icons/si"
@@ -21,24 +23,6 @@ const techStack = [
   { name: "MongoDB", icon: <SiMongodb className="text-green-500 text-lg" /> },
   { name: "TypeScript", icon: <SiTypescript className="text-blue-500 text-lg" /> },
   { name: "Redis", icon: <SiRedis className="text-red-500 text-lg" /> },
-]
-
-const stats = [
-  {
-    icon: <FaMapMarkerAlt />,
-    title: "Location",
-    value: "Bhopal, India",
-  },
-  {
-    icon: <FaBriefcase />,
-    title: "Experience",
-    value: "1+ Years",
-  },
-  {
-    icon: <FaFolderOpen />,
-    title: "Projects",
-    value: "10+",
-  },
 ]
 
 const Hero = () => {
@@ -87,52 +71,57 @@ const Hero = () => {
               user experience.
             </p>
 
-            {/* Tech */}
-
-            <div className="mt-7 flex max-w-[720px] flex-wrap gap-2">
-              {techStack.map((tech) => (
-                <div
-                  key={tech.name}
-                  className="tech-pill flex items-center  rounded-full border border-white/10 bg-[#131A26] px-4 gap-1 py-[11px]"
-                >
-                  {tech.icon}
-
-                  <span className="whitespace-nowrap text-[15px] font-semibold text-white">
-                    {tech.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-
             {/* Buttons */}
 
-            <div className="mt-7 flex flex-wrap gap-7">
-              <Link
-                to="projects"
-                smooth
-                duration={600}
-                offset={-80}
-                className="hero-btn group flex cursor-pointer items-center gap-2 rounded-[18px] bg-[#ADC6FF] px-8 py-4 font-semibold text-[#07111E]"
-              >
-                View Projects
-                <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-              </Link>
+            <div className="mt-7 flex flex-col items-start gap-5">
+              <div className="flex flex-wrap items-center gap-7">
+                <Link
+                  to="projects"
+                  smooth
+                  duration={600}
+                  offset={-80}
+                  className="hero-btn group flex cursor-pointer items-center gap-2 rounded-[18px] bg-[#ADC6FF] px-8 py-4 font-semibold text-[#07111E]"
+                >
+                  View Projects
+                  <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                </Link>
 
-              <button className="hero-btn flex items-center gap-3 rounded-[18px] border border-white/10 bg-[#151B26] px-9 py-4 font-semibold text-white">
-                <FaDownload />
-                Resume
-              </button>
+                <button className="hero-btn flex items-center gap-3 rounded-[18px] border border-white/10 bg-[#151B26] px-9 py-4 font-semibold text-white">
+                  <FaDownload />
+                  Resume
+                </button>
+              </div>
 
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-3 font-semibold text-[#ADC6FF]"
-              >
-                <FaGithub />
-                GitHub
-                <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-              </a>
+              {/* Social Icons */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                  className="social-icon"
+                >
+                  <FaGithub />
+                </a>
+
+                <a
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  className="social-icon"
+                >
+                  <FaLinkedin />
+                </a>
+
+                <a
+                  href="mailto:yourmail@gmail.com"
+                  aria-label="Email"
+                  className="social-icon"
+                >
+                  <FaEnvelope />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -249,29 +238,6 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* ================= STATS ================= */}
-
-        <div className="hero-stats grid gap-5 md:grid-cols-5 mt-[-30px]">
-          {stats.map((item, index) => (
-            <div
-              key={index}
-              className="hero-stat rounded-[26px] border border-white/10 bg-[#131A26]/70 p-4 backdrop-blur-xl"
-            >
-              <div className="mb-5 flex items-center gap-4">
-                <div className="flex h-8 w-12 items-center justify-center rounded-xl bg-[#ADC6FF]/10 text-[#ADC6FF]">
-                  {item.icon}
-                </div>
-
-                <span className="text-[11px] uppercase tracking-[0.24em] text-slate-400">
-                  {item.title}
-                </span>
-              </div>
-
-              <h3 className="text-[24px] font-semibold text-white">{item.value}</h3>
-            </div>
-          ))}
         </div>
       </div>
 

@@ -433,3 +433,24 @@
     display: none;
   }
 }
+.social-icon {
+  display: flex;
+  height: 42px;
+  width: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  background: #151B26;
+  color: #94A3B8;
+  font-size: 16px;
+  transition: .35s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px);
+  border-color: rgba(173,198,255,.45);
+  background: rgba(173,198,255,.08);
+  color: #ADC6FF;
+  box-shadow: 0 12px 30px rgba(77,142,255,.15);
+}
