@@ -10,7 +10,7 @@ import {
   FaLinkedin,
   FaEnvelope,
 } from "react-icons/fa"
-
+import { useEffect, useState } from "react"
 import { SiReact, SiNextdotjs, SiMongodb, SiTypescript, SiRedis } from "react-icons/si"
 
 import profile from "../../assets/profile.png"
@@ -26,10 +26,46 @@ const techStack = [
 ]
 
 const Hero = () => {
+  const roles = [
+    "Full Stack MERN Developer",
+    "UI/UX Designer",
+    "Tech Enthusiast",
+    "Software Developer",
+  ]
+
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [displayText, setDisplayText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex]
+
+    const typingSpeed = isDeleting ? 45 : 85
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayText(currentRole.substring(0, displayText.length + 1))
+
+        if (displayText.length + 1 === currentRole.length) {
+          setTimeout(() => setIsDeleting(true), 1500)
+        }
+      } else {
+        setDisplayText(currentRole.substring(0, displayText.length - 1))
+
+        if (displayText.length === 0) {
+          setIsDeleting(false)
+          setRoleIndex((prev) => (prev + 1) % roles.length)
+        }
+      }
+    }, typingSpeed)
+
+    return () => clearTimeout(timer)
+  }, [displayText, isDeleting, roleIndex])
+
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#0B1120] pt-20"
+      className="relative overflow-hidden bg-[#0B1120] pt-20 min-h-screen"
     >
       {/* Background */}
 
@@ -61,11 +97,12 @@ const Hero = () => {
               <span className="text-[#ADC6FF]"> Amit Kumar Patel</span>
             </h1>
 
-            <h2 className="mt-2 text-[24px] font-semibold text-slate-400">
-              Full Stack MERN Developer
+            <h2 className="mt-2 flex h-[36px] items-center text-[24px] font-semibold text-slate-400">
+              {displayText}
+              <span className="ml-1 inline-block h-6 w-[2px] animate-pulse bg-[#ADC6FF]" />
             </h2>
 
-            <p className="mt-5 max-w-[610px] text-[18px] leading-6 text-slate-400">
+            <p className="mt-10 max-w-[610px] text-[18px] leading-6 text-slate-400">
               Building scalable backend systems, AI-powered web applications, and production-ready
               full-stack products with clean architecture, performance optimization and exceptional
               user experience.
@@ -73,7 +110,7 @@ const Hero = () => {
 
             {/* Buttons */}
 
-            <div className="mt-7 flex flex-col items-start gap-5">
+            <div className="mt-12 flex flex-col items-start gap-5">
               <div className="flex flex-wrap items-center gap-7">
                 <Link
                   to="projects"
