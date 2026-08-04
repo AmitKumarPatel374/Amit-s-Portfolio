@@ -1,0 +1,845 @@
+/* =========================================================
+   PROJECT SECTION
+========================================================= */
+
+.projects-section {
+  position: relative;
+  background: #0b1120;
+}
+
+.projects-bg {
+  background: #0b1120;
+}
+
+.projects-grid {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+.projects-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  filter: blur(180px);
+  pointer-events: none;
+}
+
+.projects-glow-left {
+  left: -300px;
+  top: -200px;
+  background: rgba(77, 142, 255, 0.1);
+}
+
+.projects-glow-right {
+  right: -300px;
+  bottom: -250px;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.projects-container {
+  position: relative;
+
+  width: min(
+    calc(100% - 64px),
+    1440px
+  );
+
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.projects-heading {
+  position: absolute;
+
+  top: 20px;
+
+  left: 50%;
+
+  z-index: 30;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+.projects-heading h2 {
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(
+    40px,
+    4vw,
+    58px
+  );
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.projects-heading-line {
+  width: 80px;
+
+  height: 5px;
+
+  margin: 16px auto 0;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #9333ea
+    );
+}
+
+
+/* =========================================================
+   OUTER PROJECT CARD
+========================================================= */
+
+.projects-frame {
+  position: relative;
+
+  width: 100%;
+
+  /*
+   * Reduced from 82vh.
+   * This is the main fix for hidden content.
+   */
+  height: 72vh;
+
+  max-height: 650px;
+
+  margin-top: 42px;
+
+  overflow: hidden;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 18px;
+
+  background:
+    rgba(17, 24, 39, 0.82);
+
+  box-shadow:
+    0 30px 100px
+      rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(12px);
+}
+
+.projects-frame-inner {
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+}
+
+
+/* =========================================================
+   PROJECT SCREEN
+========================================================= */
+
+.project-screen {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  /*
+   * Reduced padding so complete content fits.
+   */
+  padding: 28px 42px;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+
+  /*
+   * Keep your working scroll animation.
+   */
+  transition:
+    opacity 0.12s linear,
+    filter 0.12s linear;
+}
+
+
+/* =========================================================
+   ORIGINAL PROJECT LAYOUT
+========================================================= */
+
+.project-original-layout {
+  width: 100%;
+
+  max-width: 1280px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.02fr)
+    minmax(0, 0.98fr);
+
+  align-items: center;
+
+  gap: 38px;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.project-image-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 600px;
+
+  margin: 0 auto;
+}
+
+.project-browser {
+  position: relative;
+
+  z-index: 2;
+
+  overflow: hidden;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 17px;
+
+  background: #111827;
+
+  box-shadow:
+    0 25px 65px
+      rgba(0, 0, 0, 0.35),
+
+    0 0 65px
+      rgba(77, 142, 255, 0.07);
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.project-browser:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(173, 198, 255, 0.3);
+}
+
+.project-main-image {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.7s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+.project-browser:hover
+.project-main-image {
+  transform: scale(1.035);
+}
+
+.project-image-glow {
+  position: absolute;
+
+  z-index: 0;
+
+  left: 10%;
+
+  right: 10%;
+
+  bottom: -30px;
+
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(77, 142, 255, 0.14);
+
+  filter: blur(55px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.project-content {
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+
+  max-width: 600px;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   PROJECT LABEL
+========================================================= */
+
+.project-content
+.mb-5 {
+  margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   FEATURED BADGE
+========================================================= */
+
+.project-content
+.mb-6 {
+  margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.project-title {
+  margin: 0;
+
+  color: white;
+
+  /*
+   * Smaller than your previous 58px.
+   */
+  font-size: clamp(
+    32px,
+    3.2vw,
+    48px
+  );
+
+  font-weight: 700;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.035em;
+
+  text-wrap: balance;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.project-description {
+  max-width: 570px;
+
+  margin-top: 16px;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   TECHNOLOGIES
+========================================================= */
+
+.project-technologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  max-width: 570px;
+
+  margin-top: 16px;
+}
+
+.project-tech {
+  padding: 6px 11px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 999px;
+
+  background:
+    rgba(18, 24, 38, 0.8);
+
+  color: #cbd5e1;
+
+  font-family: monospace;
+
+  font-size: 10px;
+
+  line-height: 1.2;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.project-tech:hover {
+  border-color:
+    rgba(173, 198, 255, 0.4);
+
+  background:
+    rgba(173, 198, 255, 0.1);
+
+  color: white;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.project-features {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-top: 16px;
+}
+
+.project-feature {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  color: #cbd5e1;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.project-feature svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: #adc6ff;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.project-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.project-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  min-width: 145px;
+
+  padding: 10px 18px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.project-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px
+      rgba(77, 142, 255, 0.16);
+}
+
+.project-button-primary {
+  background: #adc6ff;
+
+  color: #07111e;
+}
+
+.project-button-secondary {
+  border: 1px solid
+    rgba(255, 255, 255, 0.1);
+
+  background: #151b26;
+
+  color: white;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.projects-navigation {
+  position: absolute;
+
+  bottom: 20px;
+
+  left: 50%;
+
+  z-index: 30;
+
+  transform: translateX(-50%);
+}
+
+.projects-dots {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.project-dot {
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.2);
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.project-dot.active {
+  width: 36px;
+
+  background: #adc6ff;
+
+  box-shadow:
+    0 0 14px
+      rgba(173, 198, 255, 0.25);
+}
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+.projects-counter {
+  position: absolute;
+
+  right: 22px;
+
+  bottom: 19px;
+
+  z-index: 30;
+
+  display: flex;
+
+  align-items: center;
+
+  color: #64748b;
+
+  font-family: monospace;
+
+  font-size: 11px;
+
+  letter-spacing: 0.2em;
+}
+
+.projects-counter > span:first-child {
+  color: #adc6ff;
+}
+
+.counter-divider {
+  margin: 0 7px;
+
+  color: #334155;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .projects-container {
+    width:
+      calc(100% - 40px);
+  }
+
+  .projects-frame {
+    height: 70vh;
+
+    max-height: 600px;
+  }
+
+  .project-screen {
+    padding: 24px 30px;
+  }
+
+  .project-original-layout {
+    gap: 28px;
+  }
+
+  .project-title {
+    font-size: 38px;
+  }
+
+  .project-description {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .project-feature {
+    font-size: 11px;
+  }
+
+  .project-buttons {
+    margin-top: 16px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .projects-section {
+    height: auto !important;
+  }
+
+  .projects-section
+  .sticky {
+    position: relative;
+
+    height: auto;
+
+    overflow: visible;
+  }
+
+  .projects-container {
+    width: calc(100% - 24px);
+
+    height: auto;
+
+    padding-top: 90px;
+
+    padding-bottom: 60px;
+  }
+
+  .projects-heading {
+    position: relative;
+
+    top: auto;
+
+    left: auto;
+
+    transform: none;
+
+    margin-bottom: 28px;
+
+    white-space: normal;
+  }
+
+  .projects-heading h2 {
+    font-size: 38px;
+  }
+
+  .projects-frame {
+    height: auto;
+
+    max-height: none;
+
+    margin-top: 0;
+
+    overflow: visible;
+
+    border-radius: 18px;
+  }
+
+  .projects-frame-inner {
+    height: auto;
+  }
+
+  .project-screen {
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+
+    height: auto;
+
+    min-height: 0;
+
+    margin-bottom: 20px;
+
+    padding: 20px;
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    filter: none !important;
+
+    pointer-events: auto !important;
+  }
+
+  .project-original-layout {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+  }
+
+  .project-image-wrapper {
+    max-width: 100%;
+  }
+
+  .project-content {
+    max-width: 100%;
+  }
+
+  .project-title {
+    font-size: 34px;
+  }
+
+  .project-description {
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+  .project-features {
+    display: none;
+  }
+
+  .project-buttons {
+    margin-top: 18px;
+  }
+
+  .projects-navigation,
+  .projects-counter {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .project-screen {
+    transition: none !important;
+  }
+
+  .project-browser,
+  .project-main-image,
+  .project-button {
+    transition: none !important;
+  }
+}

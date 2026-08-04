@@ -51,12 +51,8 @@ const Experience = () => {
     >
       {/* ================= Background ================= */}
 
-      <div className="experience-bg absolute inset-0 -z-10">
-        <div className="absolute left-[-260px] top-0 h-[650px] w-[650px] rounded-full bg-[#4D8EFF]/10 blur-[170px]" />
-
-        <div className="absolute right-[-260px] bottom-0 h-[650px] w-[650px] rounded-full bg-violet-500/10 blur-[180px]" />
-
-        <div className="experience-grid absolute inset-0 opacity-[0.04]" />
+      <div className="projects-bg pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="projects-grid absolute inset-0" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-10">

@@ -123,10 +123,8 @@ const About = () => {
     >
       {/* ================= Background ================= */}
 
-      <div className="about-bg">
-        <div className="about-glow about-glow-left" />
-        <div className="about-glow about-glow-right" />
-        <div className="about-grid" />
+      <div className="projects-bg pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="projects-grid absolute inset-0" />
       </div>
 
       <div className="about-container">
