@@ -8,16 +8,11 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-32"
+      className="relative overflow-hidden py-32 bg-[#0B1120]"
     >
       {/* Background */}
-
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-        <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[160px]" />
-
-        <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-violet-500/10 blur-[160px]" />
+      <div className="skills-bg pointer-events-none absolute inset-0 -z-0">
+        <div className="projects-grid absolute inset-0" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10">

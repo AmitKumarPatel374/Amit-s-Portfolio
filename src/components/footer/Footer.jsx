@@ -2,84 +2,180 @@ import { Link } from "react-scroll"
 
 import { navigation } from "../../data/navigation"
 import { socialLinks } from "../../data/footer"
-
+import "./Footer.css"
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 py-24">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+    <footer className="relative overflow-hidden border-t border-white/10">
+     
 
-        <div className="absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[120px]" />
-      </div>
+      {/* =========================================
+          MAIN FOOTER
+      ========================================= */}
 
-      <div className="mx-auto flex max-w-7xl flex-col items-center px-6 text-center lg:px-10">
-        {/* Availability */}
-        <div className="inline-flex items-center gap-3 rounded-full border border-blue-500/20 bg-blue-500/10 px-5 py-2">
-          <span className="relative flex h-3 w-3">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex h-3 w-3 rounded-full bg-green-400" />
-          </span>
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* =====================================
+              BRAND
+          ===================================== */}
 
-          <span className="text-sm font-medium text-blue-300">
-            Available for Full-Time Opportunities
-          </span>
-        </div>
+          <div className="lg:pr-10">
+            <h2 className="footer-name">Amit Kumar Patel</h2>
 
-        {/* Name */}
-        <h2 className="mt-10 text-3xl font-bold text-white">Amit Kumar Patel</h2>
+            <p className="footer-description">
+              Full Stack MERN Developer passionate about building scalable backend systems,
+              AI-powered applications, and modern web experiences.
+            </p>
 
-        <p className="mt-5 max-w-2xl leading-8 text-slate-400">
-          Full Stack MERN Developer passionate about building scalable backend systems, AI-powered
-          applications, and modern web experiences.
-        </p>
+            {/* Social Icons */}
 
-        {/* Navigation */}
-        <div className="mt-12 flex flex-wrap justify-center gap-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.id}
-              to={item.id}
-              smooth={true}
-              duration={600}
-              offset={-70}
-              className="cursor-pointer text-sm font-medium text-slate-400 transition hover:text-blue-400"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+            <div className="mt-7 flex gap-3">
+              {socialLinks.map((item) => {
+                const Icon = item.icon
 
-        {/* Social */}
-        <div className="mt-12 flex gap-5">
-          {socialLinks.map((item) => {
-            const Icon = item.icon
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={item.name}
+                    className="footer-social"
+                  >
+                    <Icon />
+                  </a>
+                )
+              })}
+            </div>
 
-            return (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={item.name}
-                className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-[#111827]/70 text-slate-300 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:bg-blue-500/10 hover:text-blue-400"
+            <p className="mt-6 text-sm leading-6 text-slate-500">
+              Let's connect and build something amazing together!
+            </p>
+          </div>
+
+          {/* =====================================
+              QUICK LINKS
+          ===================================== */}
+
+          <div>
+            <h3 className="footer-heading">Quick Links</h3>
+
+            <div className="mt-6 flex flex-col gap-4">
+              {navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href.replace("#", "")}
+                  smooth={true}
+                  duration={600}
+                  offset={-70}
+                  className="footer-link"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* =====================================
+              SERVICES
+          ===================================== */}
+
+          <div>
+            <h3 className="footer-heading">Services</h3>
+
+            <div className="mt-6 flex flex-col gap-4">
+              <span className="footer-link">Web Development</span>
+
+              <span className="footer-link">UI/UX Design</span>
+
+              <span className="footer-link">Backend Development</span>
+
+              <span className="footer-link">Performance Optimization</span>
+            </div>
+          </div>
+
+          {/* =====================================
+              RESOURCES
+          ===================================== */}
+
+          <div>
+            <h3 className="footer-heading">Resources</h3>
+
+            <div className="mt-6 flex flex-col gap-4">
+              <Link
+                to="projects"
+                smooth={true}
+                duration={600}
+                offset={-70}
+                className="footer-link"
               >
-                <Icon className="text-xl" />
+                Portfolio
+              </Link>
+
+              <a
+                href="#"
+                className="footer-link"
+              >
+                Resume
               </a>
-            )
-          })}
+
+              <Link
+                to="contact"
+                smooth={true}
+                duration={600}
+                offset={-70}
+                className="footer-link"
+              >
+                Contact
+              </Link>
+            </div>
+          </div>
         </div>
 
-        {/* Divider */}
-        <div className="my-12 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        {/* =========================================
+            DIVIDER
+        ========================================= */}
 
-        {/* Bottom */}
-        <div className="flex w-full flex-col items-center justify-between gap-4 text-sm text-slate-500 md:flex-row">
+        <div className="my-12 h-px w-full bg-white/[0.08]" />
+
+        {/* =========================================
+            BOTTOM
+        ========================================= */}
+
+        <div className="flex flex-col items-center justify-between gap-5 text-sm text-slate-500 md:flex-row">
           <p>© {new Date().getFullYear()} Amit Kumar Patel. All Rights Reserved.</p>
 
-          <p>Built with ❤️ using React, Tailwind CSS, Framer Motion & Node.js.</p>
+          <div className="flex items-center gap-7">
+            <a
+              href="#"
+              className="footer-bottom-link"
+            >
+              Privacy Policy
+            </a>
+
+            <a
+              href="#"
+              className="footer-bottom-link"
+            >
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
+
+      {/* =========================================
+          BACK TO TOP
+      ========================================= */}
+
+      <Link
+        to="home"
+        smooth={true}
+        duration={800}
+        offset={0}
+        className="footer-back-to-top"
+        aria-label="Back to top"
+      >
+        ↑
+      </Link>
     </footer>
   )
 }
