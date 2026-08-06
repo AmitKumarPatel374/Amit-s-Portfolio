@@ -79,33 +79,33 @@ const Navbar = () => {
               duration={600}
               offset={-80}
               className="
-      font-headline-md
-      text-headline-md
-      font-bold
-      text-on-background
-      tracking-tighter
-      transition-transform
-      active:scale-95
-      cursor-pointer
-    "
+    font-headline-md
+    text-headline-md
+    font-bold
+    text-on-background
+    tracking-tighter
+    transition-transform
+    active:scale-95
+    cursor-pointer
+  "
             >
-              AKP
+              {"<Amit />"}
             </Link>
           </div>
 
           {/* ================= Center : Desktop Navigation ================= */}
 
           <div className="hidden md:flex items-center gap-8">
-            {navigation.map((item, index) => (
-              <Link
-                key={item.name}
-                to={item.href.replace("#", "")}
-                smooth
-                spy
-                duration={600}
-                offset={-80}
-                activeClass="nav-active"
-                className={`
+  {navigation.map((item) => (
+    <Link
+      key={item.name}
+      to={item.href.replace("#", "")}
+      smooth
+      spy
+      duration={600}
+      offset={-80}
+      activeClass="nav-active"
+      className="
         font-label-md
         text-label-md
         uppercase
@@ -115,18 +115,14 @@ const Navbar = () => {
         transition-colors
         duration-300
         cursor-pointer
-
-        ${
-          index === 0
-            ? "text-primary border-b-2 border-primary pb-1"
-            : "text-on-surface-variant hover:text-on-background"
-        }
-      `}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+        text-on-surface-variant
+        hover:text-on-background
+      "
+    >
+      {item.name}
+    </Link>
+  ))}
+</div>
 
           {/* ================= Right : Actions ================= */}
 
