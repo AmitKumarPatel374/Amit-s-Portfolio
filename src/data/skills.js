@@ -35,7 +35,6 @@ export const skillCategories = [
       "TypeScript",
       "Tailwind CSS",
       "Redux Toolkit",
-      "Framer Motion",
     ],
   },
 
@@ -55,7 +54,6 @@ export const skillCategories = [
       "REST API",
       "JWT Authentication",
       "Socket.io",
-      "MVC Architecture",
     ],
   },
 
@@ -68,7 +66,7 @@ export const skillCategories = [
 
     description: "Designing efficient databases and deploying secure cloud-based applications.",
 
-    skills: ["MongoDB", "PostgreSQL", "Redis", "AWS EC2", "AWS S3", "Docker"],
+    skills: ["MongoDB", "PostgreSQL", "Redis", "AWS EC2", "AWS S3"],
   },
 
   {
@@ -81,7 +79,7 @@ export const skillCategories = [
     description:
       "Using modern development workflows, testing tools and version control to build reliable software.",
 
-    skills: ["Git", "GitHub", "Postman", "VS Code", "Vite", "npm"],
+    skills: ["Git", "GitHub", "Postman", "VS Code"],
   },
 
   {
@@ -97,9 +95,7 @@ export const skillCategories = [
       "Gemini API",
       "OpenAI API",
       "Prompt Engineering",
-      "n8n",
-      "Telegram Bot API",
-      "AI Automation",
+      "n8n basic",
     ],
   },
 
@@ -113,6 +109,7 @@ export const skillCategories = [
     description:
       "Continuously expanding my knowledge with modern technologies and scalable architectures.",
 
-    skills: ["System Design", "Microservices", "Kubernetes", "CI/CD", "AWS", "WebSockets"],
+    skills: ["CI/CD", "AWS", "WebSockets"],
+    // skills: ["System Design", "Microservices", "Kubernetes", "CI/CD", "AWS", "WebSockets"],
   },
 ]

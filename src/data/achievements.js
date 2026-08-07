@@ -63,7 +63,7 @@ export const achievements = [
     title: "Continuous Learning",
 
     description:
-      "Actively learning System Design, Cloud Computing, Kubernetes, AI integrations, advanced React architecture, and scalable distributed systems.",
+      "Actively learning Cloud Computing, AI integrations, advanced React architecture, and scalable distributed systems.",
   },
 
   {
@@ -90,7 +90,7 @@ export const statistics = [
   {
     label: "Technologies",
 
-    value: "20+",
+    value: "15+",
   },
 
   {

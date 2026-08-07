@@ -6,6 +6,30 @@ import learn2survive from "../assets/projects/learn2survive.png"
 
 export const projects = [
   {
+    featured: false,
+
+    title: "Learn2Survive",
+
+    image: learn2survive,
+
+    description:
+      "An AI-powered disaster preparedness platform that provides awareness modules, interactive quizzes, simulations, emergency contacts, and personalized learning paths.",
+
+    tech: ["React", "Node.js", "MongoDB", "Express", "Gemini AI", "Framer Motion"],
+
+    features: [
+      "AI-powered learning modules",
+      "Interactive quiz system",
+      "Disaster simulations",
+      "Emergency contact directory",
+      "Progress tracking dashboard",
+    ],
+
+    live: "https://learn2-survive-client.vercel.app/",
+
+    github: "https://github.com/AmitKumarPatel374/Learn2Survive-client.git",
+  },
+  {
     featured: true,
 
     title: "ResuInstant - AI Resume Builder",
@@ -25,9 +49,9 @@ export const projects = [
       "One-click PDF export",
     ],
 
-    live: "https://your-live-link.com",
+    live: "https://resuinstant-amit.vercel.app/",
 
-    github: "https://github.com/yourusername/resuinstant",
+    github: "https://github.com/AmitKumarPatel374/resuInstant-client.git",
   },
 
   {
@@ -50,33 +74,8 @@ export const projects = [
       "Responsive UI",
     ],
 
-    live: "https://your-shopmaster-demo.com",
+    live: "https://sasta-flipcart.vercel.app/",
 
-    github: "https://github.com/yourusername/shopmaster",
-  },
-
-  {
-    featured: false,
-
-    title: "Learn2Survive",
-
-    image: learn2survive,
-
-    description:
-      "An AI-powered disaster preparedness platform that provides awareness modules, interactive quizzes, simulations, emergency contacts, and personalized learning paths.",
-
-    tech: ["React", "Node.js", "MongoDB", "Express", "Gemini AI", "Framer Motion"],
-
-    features: [
-      "AI-powered learning modules",
-      "Interactive quiz system",
-      "Disaster simulations",
-      "Emergency contact directory",
-      "Progress tracking dashboard",
-    ],
-
-    live: "https://your-learn2survive-demo.com",
-
-    github: "https://github.com/yourusername/learn2survive",
+    github: "https://github.com/AmitKumarPatel374/ShopMaster.git",
   },
 ]

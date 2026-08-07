@@ -71,8 +71,6 @@ const expertise = [
     icon: <FaTerminal />,
     color: "cyan",
     technologies: [
-      { name: "Docker", icon: <SiDocker /> },
-      { name: "Kubernetes", icon: <SiKubernetes /> },
       { name: "Git", icon: <SiGit /> },
       { name: "GitHub", icon: <SiGithub /> },
       { name: "Postman", icon: <SiPostman /> },
