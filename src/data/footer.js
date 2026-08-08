@@ -4,13 +4,13 @@ export const socialLinks = [
   {
     name: "GitHub",
     icon: FaGithub,
-    href: "https://github.com/yourusername", // Replace with your GitHub
+    href: "https://github.com/AmitKumarPatel374", // Replace with your GitHub
   },
 
   {
     name: "LinkedIn",
     icon: FaLinkedin,
-    href: "https://linkedin.com/in/yourusername", // Replace with your LinkedIn
+    href: "https://www.linkedin.com/in/amit-kumar-patel-053130316/", // Replace with your LinkedIn
   },
 
   {

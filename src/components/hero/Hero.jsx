@@ -123,7 +123,12 @@ const Hero = () => {
                   <FaArrowRight className="transition-transform group-hover:translate-x-1" />
                 </Link>
 
-                <button className="hero-btn flex items-center gap-3 rounded-[18px] border border-white/10 bg-[#151B26] px-9 py-4 font-semibold text-white">
+                <button
+                  onClick={() => {
+                    window.open("/resume.pdf", "_blank", "noopener,noreferrer")
+                  }}
+                  className="hero-btn flex items-center gap-3 rounded-[18px] border border-white/10 bg-[#151B26] px-9 py-4 font-semibold text-white"
+                >
                   <FaDownload />
                   Resume
                 </button>
@@ -132,7 +137,7 @@ const Hero = () => {
               {/* Social Icons */}
               <div className="flex items-center gap-3">
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/AmitKumarPatel374"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
@@ -142,7 +147,7 @@ const Hero = () => {
                 </a>
 
                 <a
-                  href="https://linkedin.com/"
+                  href="https://www.linkedin.com/in/amit-kumar-patel-053130316/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -152,7 +157,7 @@ const Hero = () => {
                 </a>
 
                 <a
-                  href="mailto:yourmail@gmail.com"
+                  href="mailto:amitpatel9302352967@gmail.com"
                   aria-label="Email"
                   className="social-icon"
                 >
@@ -175,7 +180,7 @@ const Hero = () => {
               <img
                 src={profile}
                 alt="Amit Kumar Patel"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover  object-top"
               />
             </div>
 

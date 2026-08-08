@@ -6,8 +6,6 @@ import "./Footer.css"
 const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-white/10">
-     
-
       {/* =========================================
           MAIN FOOTER
       ========================================= */}
@@ -76,24 +74,6 @@ const Footer = () => {
           </div>
 
           {/* =====================================
-              SERVICES
-          ===================================== */}
-
-          <div>
-            <h3 className="footer-heading">Services</h3>
-
-            <div className="mt-6 flex flex-col gap-4">
-              <span className="footer-link">Web Development</span>
-
-              <span className="footer-link">UI/UX Design</span>
-
-              <span className="footer-link">Backend Development</span>
-
-              <span className="footer-link">Performance Optimization</span>
-            </div>
-          </div>
-
-          {/* =====================================
               RESOURCES
           ===================================== */}
 
@@ -102,7 +82,7 @@ const Footer = () => {
 
             <div className="mt-6 flex flex-col gap-4">
               <Link
-                to="projects"
+                to="home"
                 smooth={true}
                 duration={600}
                 offset={-70}
@@ -112,7 +92,7 @@ const Footer = () => {
               </Link>
 
               <a
-                href="#"
+                href="./resume.pdf"
                 className="footer-link"
               >
                 Resume

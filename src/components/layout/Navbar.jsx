@@ -96,16 +96,16 @@ const Navbar = () => {
           {/* ================= Center : Desktop Navigation ================= */}
 
           <div className="hidden md:flex items-center gap-8">
-  {navigation.map((item) => (
-    <Link
-      key={item.name}
-      to={item.href.replace("#", "")}
-      smooth
-      spy
-      duration={600}
-      offset={-80}
-      activeClass="nav-active"
-      className="
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href.replace("#", "")}
+                smooth
+                spy
+                duration={600}
+                offset={-80}
+                activeClass="nav-active"
+                className="
         font-label-md
         text-label-md
         uppercase
@@ -118,11 +118,11 @@ const Navbar = () => {
         text-on-surface-variant
         hover:text-on-background
       "
-    >
-      {item.name}
-    </Link>
-  ))}
-</div>
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
 
           {/* ================= Right : Actions ================= */}
 
@@ -132,6 +132,12 @@ const Navbar = () => {
             {/* ================= Resume Button ================= */}
 
             <button
+               onClick={() => {
+    window.open(
+      "/resume.pdf",
+      "_blank",
+      "noopener,noreferrer"
+    )}}
               className="
     hidden
     md:block

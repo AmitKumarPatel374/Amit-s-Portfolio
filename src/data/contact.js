@@ -12,7 +12,7 @@ import {
 export const contactInfo = [
   {
     title: "Email",
-    value: "amitpatel.dev@gmail.com", // Replace with your email
+    value: "amitpatel9302352967@gmail.com",
     icon: FaEnvelope,
     buttonText: "Copy Email",
     copy: true,
@@ -20,10 +20,10 @@ export const contactInfo = [
 
   {
     title: "Phone",
-    value: "+91 XXXXX XXXXX", // Replace with your phone
+    value: "+91 9753005051", 
     icon: FaPhoneAlt,
     buttonText: "Call Now",
-    action: "tel:+91XXXXXXXXXX",
+    action: "tel:+919753005051",
   },
 
   {
@@ -44,19 +44,19 @@ export const socialLinks = [
   {
     name: "GitHub",
     icon: FaGithub,
-    href: "https://github.com/yourusername",
+    href: "https://github.com/AmitKumarPatel374",
   },
 
   {
     name: "LinkedIn",
     icon: FaLinkedin,
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/amit-kumar-patel-053130316/",
   },
 
   {
     name: "Email",
-    icon: FaPaperPlane,
-    href: "mailto:amitpatel.dev@gmail.com",
+    icon: FaEnvelope,
+    href: "mailto:amitpatel9302352967@gmail.com",
   },
 
   {
