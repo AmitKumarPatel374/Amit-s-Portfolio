@@ -24,6 +24,10 @@ export const navigation = [
     href: "#achievements",
   },
   {
+    name: "Certifications",
+    href: "#certifications",
+  },
+  {
     name: "Contact",
     href: "#contact",
   },
