@@ -1,10 +1,14 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
+import emailjs from "@emailjs/browser"
 import { FaPaperPlane } from "react-icons/fa"
+import { toast } from "react-toastify"
 
 const ContactForm = () => {
+  const formRef = useRef()
+
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     subject: "",
     message: "",
   })
@@ -24,48 +28,46 @@ const ContactForm = () => {
     setLoading(true)
 
     try {
-      // EmailJS Integration
-      // await emailjs.send(...)
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
+      )
 
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-
-      alert("Message sent successfully!")
-
+      toast.success("Message sent successfully!")
+      
       setFormData({
-        name: "",
-        email: "",
+        from_name: "",
+        from_email: "",
         subject: "",
         message: "",
       })
-    } catch (err) {
-      alert("Something went wrong.")
-      console.error(err)
+    } catch (error) {
+      
+      toast.error("Failed to send message. Please try again.")
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div
-      className="
-        rounded-3xl
-        border
-        border-white/10
-        bg-[#111827]/70
-        p-8
-        backdrop-blur-xl
-        lg:p-10
-      "
-    >
+    <div>
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
-        className="space-y-8"
+        className="space-y-6"
       >
+        {/* Name + Email */}
+
         <div className="grid gap-6 md:grid-cols-2">
           <InputField
-            label="Full Name"
-            name="name"
-            value={formData.name}
+            label="Name"
+            type="text"
+            name="from_name"
+            value={formData.from_name}
             onChange={handleChange}
             placeholder="John Doe"
           />
@@ -73,12 +75,14 @@ const ContactForm = () => {
           <InputField
             label="Email Address"
             type="email"
-            name="email"
-            value={formData.email}
+            name="from_email"
+            value={formData.from_email}
             onChange={handleChange}
             placeholder="john@example.com"
           />
         </div>
+
+        {/* Subject */}
 
         <InputField
           label="Subject"
@@ -87,6 +91,8 @@ const ContactForm = () => {
           onChange={handleChange}
           placeholder="Project Discussion"
         />
+
+        {/* Message */}
 
         <div>
           <label className="mb-3 block text-sm font-medium text-slate-300">Message</label>
@@ -115,6 +121,8 @@ const ContactForm = () => {
             required
           />
         </div>
+
+        {/* Submit */}
 
         <button
           type="submit"
@@ -159,6 +167,8 @@ const ContactForm = () => {
             </>
           )}
         </button>
+
+        {/* Bottom info */}
 
         <div
           className="
