@@ -4,19 +4,10 @@
 
 .footer-grid {
   background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.018) 1px,
-      transparent 1px
-    );
-
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
   background-size: 40px 40px;
 }
-
 
 /* =========================================================
    BRAND
@@ -24,38 +15,22 @@
 
 .footer-name {
   margin: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      #60a5fa,
-      #a78bfa
-    );
-
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
   background-clip: text;
   -webkit-background-clip: text;
-
   color: transparent;
-
   font-size: 30px;
-
   font-weight: 700;
-
   line-height: 1.1;
 }
 
 .footer-description {
   max-width: 350px;
-
   margin-top: 16px;
-
   color: #94a3b8;
-
   font-size: 16px;
-
   line-height: 1.8;
 }
-
 
 /* =========================================================
    HEADINGS
@@ -63,14 +38,10 @@
 
 .footer-heading {
   margin: 0;
-
   color: white;
-
-  font-size: 20px;
-
+  font-size: 18px;
   font-weight: 600;
 }
-
 
 /* =========================================================
    LINKS
@@ -78,17 +49,11 @@
 
 .footer-link {
   width: fit-content;
-
   color: #94a3b8;
-
-  font-size: 16px;
-
+  font-size: 15px;
   line-height: 1.5;
-
   cursor: pointer;
-
   text-decoration: none;
-
   transition:
     color 0.25s ease,
     transform 0.25s ease;
@@ -96,10 +61,8 @@
 
 .footer-link:hover {
   color: #60a5fa;
-
   transform: translateX(3px);
 }
-
 
 /* =========================================================
    SOCIAL ICONS
@@ -107,29 +70,16 @@
 
 .footer-social {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  width: 54px;
-
-  height: 54px;
-
-  border: 1px solid
-    rgba(255, 255, 255, 0.06);
-
-  border-radius: 10px;
-
-  background:
-    rgba(30, 41, 59, 0.8);
-
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.8);
   color: #94a3b8;
-
-  font-size: 21px;
-
+  font-size: 18px;
   text-decoration: none;
-
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -139,16 +89,40 @@
 
 .footer-social:hover {
   transform: translateY(-4px);
-
-  border-color:
-    rgba(96, 165, 250, 0.35);
-
-  background:
-    rgba(59, 130, 246, 0.1);
-
+  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(59, 130, 246, 0.1);
   color: #60a5fa;
 }
 
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.footer-contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 11px 18px;
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.08);
+  color: #93c5fd;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.footer-contact-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(96, 165, 250, 0.45);
+  background: rgba(59, 130, 246, 0.14);
+}
 
 /* =========================================================
    BOTTOM LINKS
@@ -156,9 +130,7 @@
 
 .footer-bottom-link {
   color: #94a3b8;
-
   text-decoration: none;
-
   transition: color 0.25s ease;
 }
 
@@ -166,51 +138,28 @@
   color: #60a5fa;
 }
 
-
 /* =========================================================
    BACK TO TOP
 ========================================================= */
 
 .footer-back-to-top {
   position: absolute;
-
   right: 32px;
-
   bottom: 28px;
-
+  z-index: 20;
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  width: 68px;
-
-  height: 68px;
-
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #9333ea
-    );
-
+  background: linear-gradient(135deg, #2563eb, #9333ea);
   color: white;
-
-  font-size: 34px;
-
+  font-size: 28px;
   font-weight: 300;
-
   line-height: 1;
-
   text-decoration: none;
-
-  box-shadow:
-    0 10px 30px
-      rgba(37, 99, 235, 0.2);
-
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -218,31 +167,27 @@
 
 .footer-back-to-top:hover {
   transform: translateY(-5px);
-
-  box-shadow:
-    0 15px 40px
-      rgba(37, 99, 235, 0.3);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
 }
 
-
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
 @media (max-width: 768px) {
-
   .footer-name {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .footer-description {
     max-width: 100%;
-
+    margin-top: 13px;
     font-size: 14px;
+    line-height: 1.7;
   }
 
   .footer-heading {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .footer-link {
@@ -250,26 +195,64 @@
   }
 
   .footer-social {
-    width: 48px;
-
-    height: 48px;
-
-    font-size: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    font-size: 17px;
   }
 
   .footer-back-to-top {
-    right: 18px;
+    right: 16px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+}
 
-    bottom: 20px;
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
-    width: 52px;
+@media (max-width: 480px) {
+  .footer-name {
+    font-size: 24px;
+  }
 
-    height: 52px;
+  .footer-description {
+    font-size: 13px;
+    line-height: 1.65;
+  }
 
-    font-size: 27px;
+  .footer-heading {
+    font-size: 16px;
+  }
+
+  .footer-link {
+    font-size: 13px;
+  }
+
+  .footer-social {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  .footer-contact-button {
+    width: 100%;
+    justify-content: center;
   }
 
   .footer-bottom-link {
-    font-size: 13px;
+    font-size: 11px;
+  }
+
+  .footer-back-to-top {
+    right: 14px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
   }
 }

@@ -8,37 +8,35 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-32 bg-[#0B1120]"
+      className="relative overflow-hidden bg-[#0B1120] py-20 sm:py-24 lg:py-32"
     >
       {/* Background */}
       <div className="skills-bg pointer-events-none absolute inset-0 -z-0">
         <div className="projects-grid absolute inset-0" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Heading */}
-
         <div className="max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-400">Contact</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-400 sm:text-sm sm:tracking-[0.35em]">
+            Contact
+          </p>
 
-          <h2 className="mt-6 text-5xl font-bold leading-tight text-white">
-            Let's Build Something
-            <span className="text-blue-400"> Amazing Together</span>
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:mt-6 sm:text-4xl md:text-5xl">
+            Let's Build Something <span className="text-blue-400">Amazing Together</span>
           </h2>
 
-          <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-400">
+          <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-400 sm:mt-8 sm:text-base sm:leading-8 lg:text-lg">
             I'm always excited to work on innovative projects, collaborate with talented people, and
             explore new opportunities. Feel free to reach out anytime.
           </p>
         </div>
 
         {/* Content */}
-
-        <div className="mt-24 grid gap-16 lg:grid-cols-12">
+        <div className="mt-12 grid gap-10 sm:mt-16 lg:mt-20 lg:grid-cols-12 lg:gap-14">
           {/* Left */}
-
-          <div className="space-y-8 lg:col-span-5">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="space-y-5 lg:col-span-5 lg:space-y-6">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {contactInfo.map((item) => (
                 <ContactInfoCard
                   key={item.title}
@@ -48,8 +46,7 @@ const Contact = () => {
             </div>
 
             {/* Social */}
-
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-3 pt-2 sm:gap-4 sm:pt-4">
               {socialLinks.map((social) => (
                 <SocialButton
                   key={social.name}
@@ -60,7 +57,6 @@ const Contact = () => {
           </div>
 
           {/* Right */}
-
           <div className="lg:col-span-7">
             <ContactForm />
           </div>

@@ -65,7 +65,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#0B1120] pt-20 min-h-screen"
+      className="hero-section relative min-h-screen overflow-hidden bg-[#0B1120] pt-20"
     >
       {/* Background */}
 

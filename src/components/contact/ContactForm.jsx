@@ -24,7 +24,6 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     setLoading(true)
 
     try {
@@ -38,7 +37,7 @@ const ContactForm = () => {
       )
 
       toast.success("Message sent successfully!")
-      
+
       setFormData({
         from_name: "",
         from_email: "",
@@ -46,7 +45,7 @@ const ContactForm = () => {
         message: "",
       })
     } catch (error) {
-      
+      console.error(error)
       toast.error("Failed to send message. Please try again.")
     } finally {
       setLoading(false)
@@ -54,15 +53,14 @@ const ContactForm = () => {
   }
 
   return (
-    <div>
+    <div className="rounded-3xl border border-white/10 bg-[#111827]/50 p-4 backdrop-blur-xl sm:p-6 lg:p-8">
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="space-y-6"
+        className="space-y-5 sm:space-y-6"
       >
         {/* Name + Email */}
-
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           <InputField
             label="Name"
             type="text"
@@ -83,7 +81,6 @@ const ContactForm = () => {
         </div>
 
         {/* Subject */}
-
         <InputField
           label="Subject"
           name="subject"
@@ -93,71 +90,31 @@ const ContactForm = () => {
         />
 
         {/* Message */}
-
         <div>
-          <label className="mb-3 block text-sm font-medium text-slate-300">Message</label>
+          <label className="mb-2 block text-xs font-medium text-slate-300 sm:mb-3 sm:text-sm">
+            Message
+          </label>
 
           <textarea
             name="message"
-            rows={7}
+            rows={6}
             value={formData.message}
             onChange={handleChange}
             placeholder="Tell me about your project..."
-            className="
-              w-full
-              rounded-2xl
-              border
-              border-white/10
-              bg-slate-900/60
-              px-5
-              py-4
-              text-white
-              outline-none
-              transition
-              duration-300
-              placeholder:text-slate-500
-              focus:border-blue-400
-            "
+            className="w-full resize-none rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3.5 text-sm text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-blue-400 sm:px-5 sm:py-4 sm:text-base"
             required
           />
         </div>
 
         {/* Submit */}
-
         <button
           type="submit"
           disabled={loading}
-          className="
-            flex
-            w-full
-            items-center
-            justify-center
-            gap-3
-            rounded-2xl
-            bg-blue-500
-            py-4
-            font-semibold
-            text-white
-            transition-all
-            duration-300
-            hover:bg-blue-600
-            disabled:cursor-not-allowed
-            disabled:opacity-70
-          "
+          className="flex w-full items-center justify-center gap-3 rounded-2xl bg-blue-500 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-600 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 sm:py-4 sm:text-base"
         >
           {loading ? (
             <>
-              <span
-                className="
-                  h-5
-                  w-5
-                  animate-spin
-                  rounded-full
-                  border-2
-                  border-white
-                  border-t-transparent
-                "
-              />
+              <span className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
               Sending...
             </>
           ) : (
@@ -169,25 +126,10 @@ const ContactForm = () => {
         </button>
 
         {/* Bottom info */}
-
-        <div
-          className="
-            flex
-            flex-col
-            gap-4
-            border-t
-            border-white/10
-            pt-6
-            text-sm
-            text-slate-400
-            md:flex-row
-            md:items-center
-            md:justify-between
-          "
-        >
+        <div className="flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:pt-6 sm:text-sm">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-green-400" />
-            Securely encrypted communication
+            <span className="h-2 w-2 shrink-0 rounded-full bg-green-400" />
+            <span>Securely encrypted communication</span>
           </div>
 
           <p>Average response time: 24 hours</p>
@@ -200,27 +142,15 @@ const ContactForm = () => {
 const InputField = ({ label, type = "text", ...props }) => {
   return (
     <div>
-      <label className="mb-3 block text-sm font-medium text-slate-300">{label}</label>
+      <label className="mb-2 block text-xs font-medium text-slate-300 sm:mb-3 sm:text-sm">
+        {label}
+      </label>
 
       <input
         type={type}
         required
         {...props}
-        className="
-          w-full
-          rounded-2xl
-          border
-          border-white/10
-          bg-slate-900/60
-          px-5
-          py-4
-          text-white
-          outline-none
-          transition
-          duration-300
-          placeholder:text-slate-500
-          focus:border-blue-400
-        "
+        className="w-full rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-3.5 text-sm text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-blue-400 sm:px-5 sm:py-4 sm:text-base"
       />
     </div>
   )

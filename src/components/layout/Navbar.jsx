@@ -13,89 +13,119 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 20)
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto"
+    document.body.style.overflow = isOpen ? "hidden" : ""
 
     return () => {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = ""
     }
   }, [isOpen])
 
+  // Close mobile menu when screen becomes desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
+  const handleResume = () => {
+    window.open("/resume.pdf", "_blank", "noopener,noreferrer")
+  }
+
   return (
     <>
-      {/* ================= HEADER ================= */}
+      {/* =================================================
+          HEADER
+      ================================================= */}
 
       <header
         id="navbar"
         className={`
-  fixed
-  top-0
-  w-full
-  z-50
-  transition-all
-  duration-300
+          fixed
+          top-0
+          left-0
+          z-50
+          w-full
+          transition-all
+          duration-300
 
-  ${
-    isScrolled
-      ? "bg-background/80 backdrop-blur-md shadow-2xl shadow-black/50 border-b border-white/10"
-      : "bg-background border-b border-transparent"
-  }
-`}
+          ${
+            isScrolled
+              ? "bg-background/80 backdrop-blur-md shadow-2xl shadow-black/50 border-b border-white/10"
+              : "bg-background border-b border-transparent"
+          }
+        `}
       >
         <nav
           id="nav-container"
           className={`
-            flex
-            justify-between
-            items-center
-
-            px-page-margin
-
-            max-w-container-max
-
             mx-auto
+            flex
+            max-w-container-max
+            items-center
+            justify-between
 
-            fade-in-sequence
+            px-5
+            sm:px-6
+            lg:px-page-margin
 
             transition-all
-
             duration-300
 
             ${isScrolled ? "h-16" : "h-20"}
           `}
         >
-          {/* ================= Left : Logo ================= */}
+          {/* =================================================
+              LOGO
+          ================================================= */}
 
-          <div className="flex items-center">
+          <div className="flex shrink-0 items-center">
             <Link
               to="home"
               smooth
               spy
               duration={600}
               offset={-80}
+              onClick={() => setIsOpen(false)}
               className="
-    font-headline-md
-    text-headline-md
-    font-bold
-    text-on-background
-    tracking-tighter
-    transition-transform
-    active:scale-95
-    cursor-pointer
-  "
+                cursor-pointer
+                font-headline-md
+                text-headline-md
+                text-sm
+                font-bold
+                tracking-tighter
+                text-on-background
+                transition-transform
+                active:scale-95
+                sm:text-base
+                lg:text-headline-md
+              "
             >
               {"<Amit />"}
             </Link>
           </div>
 
-          {/* ================= Center : Desktop Navigation ================= */}
+          {/* =================================================
+              DESKTOP NAVIGATION
+              Visible only on lg+
+          ================================================= */}
 
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden items-center gap-4 lg:flex xl:gap-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -106,127 +136,142 @@ const Navbar = () => {
                 offset={-80}
                 activeClass="nav-active"
                 className="
-        font-label-md
-        text-label-md
-        uppercase
-        tracking-wider
-        relative
-        nav-link
-        transition-colors
-        duration-300
-        cursor-pointer
-        text-on-surface-variant
-        hover:text-on-background
-      "
+                  nav-link
+                  relative
+                  cursor-pointer
+                  whitespace-nowrap
+
+                  font-label-md
+                  text-label-md
+                  uppercase
+                  tracking-wider
+
+                  text-on-surface-variant
+
+                  transition-colors
+                  duration-300
+
+                  hover:text-on-background
+                "
               >
                 {item.name}
               </Link>
             ))}
           </div>
 
-          {/* ================= Right : Actions ================= */}
+          {/* =================================================
+              RIGHT SIDE
+          ================================================= */}
 
-          <div className="flex items-center gap-4">
-            {/* ================= Desktop Icons ================= */}
-
-            {/* ================= Resume Button ================= */}
+          <div className="flex shrink-0 items-center gap-3">
+            {/* Resume - Desktop */}
 
             <button
-               onClick={() => {
-    window.open(
-      "/resume.pdf",
-      "_blank",
-      "noopener,noreferrer"
-    )}}
+              onClick={handleResume}
               className="
-    hidden
-    md:block
+                hidden
+                lg:block
 
-    bg-primary
-    text-on-primary
+                rounded-lg
 
-    font-label-md
-    text-label-md
+                bg-primary
+                px-4
+                py-2
+                xl:px-5
+                xl:py-2.5
 
-    uppercase
-    tracking-wider
+                font-label-md
+                text-label-md
+                font-bold
+                uppercase
+                tracking-wider
+                text-on-primary
 
-    px-6
-    py-2.5
+                shadow-lg
+                shadow-primary/20
 
-    rounded-lg
+                transition-all
+                duration-200
 
-    font-bold
-
-    hover:opacity-90
-
-    active:scale-95
-
-    transition-all
-
-    shadow-lg
-
-    shadow-primary/20
-  "
+                hover:opacity-90
+                active:scale-95
+              "
             >
               Download Resume
             </button>
 
-            {/* ================= Mobile Toggle ================= */}
+            {/* Mobile / Tablet Toggle */}
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen((prev) => !prev)}
               className="
-    md:hidden
-    flex
-    flex-col
-    gap-1.5
-    p-2
-    z-[60]
-  "
+                relative
+                z-[60]
+                flex
+                h-10
+                w-10
+                flex-col
+                items-center
+                justify-center
+                gap-1.5
+                rounded-lg
+                p-2
+                lg:hidden
+              "
             >
               <span
                 className={`
-      w-6
-      h-0.5
-      bg-on-background
-      transition-all
+                  block
+                  h-0.5
+                  w-6
+                  bg-on-background
+                  transition-all
+                  duration-300
 
-      ${isOpen ? "rotate-45 translate-y-1" : ""}
-    `}
+                  ${isOpen ? "translate-y-1 rotate-45" : ""}
+                `}
               />
 
               <span
                 className={`
-      w-6
-      h-0.5
-      bg-on-background
-      transition-all
+                  block
+                  h-0.5
+                  w-6
+                  bg-on-background
+                  transition-all
+                  duration-300
 
-      ${isOpen ? "-rotate-45 -translate-y-1" : ""}
-    `}
+                  ${isOpen ? "-translate-y-1 -rotate-45" : ""}
+                `}
               />
             </button>
           </div>
         </nav>
       </header>
 
-      {/* ================= Mobile Menu ================= */}
+      {/* =================================================
+          MOBILE / TABLET MENU
+      ================================================= */}
 
       <div
         id="mobile-menu"
         className={`
           fixed
           inset-0
-          bg-background
-          z-50
-          md:hidden
-
+          z-40
           flex
           flex-col
 
-          px-page-margin
-          py-20
+          bg-background
+
+          px-6
+          pb-8
+          pt-24
+
+          lg:hidden
 
           overflow-y-auto
           no-scrollbar
@@ -238,10 +283,10 @@ const Navbar = () => {
           ${isOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
-        {/* ================= Navigation ================= */}
+        {/* Navigation */}
 
-        <div className="flex flex-col gap-8 mb-auto">
-          {navigation.map((item, index) => (
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href.replace("#", "")}
@@ -249,69 +294,94 @@ const Navbar = () => {
               spy
               duration={600}
               offset={-80}
+              activeClass="mobile-nav-active"
               onClick={() => setIsOpen(false)}
-              className={`
-                font-display-lg-mobile
-                text-display-lg-mobile
-
-                transition-colors
-                duration-300
+              className="
+                mobile-nav-link
 
                 cursor-pointer
 
-                ${index === 0 ? "text-on-background" : "text-on-surface-variant hover:text-primary"}
-              `}
+                py-1
+
+                font-display-lg-mobile
+                text-display-lg-mobile
+
+                text-on-surface-variant
+
+                transition-all
+                duration-300
+
+                hover:text-primary
+              "
             >
               {item.name}
             </Link>
           ))}
         </div>
 
-        {/* ================= Bottom ================= */}
+        {/* Bottom */}
 
-        <div className="mt-12 flex flex-col gap-6">
+        <div className="mt-auto pt-10">
+          {/* Resume */}
+
           <button
+            onClick={handleResume}
             className="
               w-full
 
+              rounded-xl
+
               bg-primary
-              text-on-primary
+              py-4
 
               font-headline-md
               text-headline-md
-
-              py-4
-
-              rounded-xl
-
               font-bold
+              text-on-primary
 
-              hover:opacity-90
+              shadow-lg
+              shadow-primary/20
 
               transition-all
+              duration-300
+
+              hover:opacity-90
+              active:scale-[0.98]
             "
           >
             Download Resume
           </button>
 
-          <div className="flex gap-6 justify-center text-on-surface-variant">
+          {/* Social */}
+
+          <div
+            className="
+            mt-7
+            flex
+            flex-wrap
+            justify-center
+            gap-6
+            text-sm
+            text-on-surface-variant
+          "
+          >
             <a
               href="#"
-              className="hover:text-primary transition-colors"
+              className="transition-colors hover:text-primary"
             >
               GitHub
             </a>
 
             <a
               href="#"
-              className="hover:text-primary transition-colors"
+              className="transition-colors hover:text-primary"
             >
               LinkedIn
             </a>
 
             <a
               href="#"
-              className="hover:text-primary transition-colors"
+              className="transition-colors hover:text-primary"
             >
               Twitter
             </a>

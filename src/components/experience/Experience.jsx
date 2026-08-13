@@ -47,7 +47,7 @@ const Experience = () => {
     <section
       ref={sectionRef}
       id="experience"
-      className="relative overflow-hidden bg-[#0B1120] py-40"
+      className="experience-section relative overflow-hidden bg-[#0B1120] py-40"
     >
       {/* ================= Background ================= */}
 
