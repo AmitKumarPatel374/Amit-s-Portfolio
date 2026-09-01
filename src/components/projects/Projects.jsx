@@ -6,7 +6,6 @@ import "./Projects.css"
 
 const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0)
-
   const totalProjects = projects.length
 
   const nextProject = () => {
@@ -18,104 +17,78 @@ const Projects = () => {
   }
 
   return (
-    <section
-      id="projects"
-      className="projects-section relative overflow-hidden"
-    >
-      {/* ================= BACKGROUND ================= */}
-
+    <section id="projects" className="projects-section relative overflow-hidden">
       <div className="projects-bg pointer-events-none absolute inset-0">
         <div className="projects-grid absolute inset-0" />
       </div>
 
-      {/* ================= CONTAINER ================= */}
-
       <div className="projects-container">
-
-        {/* ================= HEADING ================= */}
 
         <div className="projects-heading">
           <h2>Selected Works</h2>
           <div className="projects-heading-line" />
         </div>
 
-        {/* ================= PROJECT AREA ================= */}
+        {/* DESKTOP SLIDER */}
+        <div className="projects-desktop">
+          <div className="projects-slider">
 
-        <div className="projects-slider">
+            <button
+              type="button"
+              onClick={previousProject}
+              className="project-nav-button project-nav-left"
+              aria-label="Previous project"
+            >
+              <FaChevronLeft />
+            </button>
 
-          {/* PREVIOUS BUTTON */}
+            <div className="projects-frame">
+              <ProjectCard
+                key={projects[currentProject].title}
+                project={projects[currentProject]}
+                index={currentProject}
+              />
+            </div>
 
-          <button
-            type="button"
-            onClick={previousProject}
-            className="project-nav-button project-nav-left"
-            aria-label="Previous project"
-          >
-            <FaChevronLeft />
-          </button>
-
-          {/* CARD */}
-
-          <div className="projects-frame">
-
-            <ProjectCard
-              key={projects[currentProject].title}
-              project={projects[currentProject]}
-              index={currentProject}
-              total={totalProjects}
-            />
+            <button
+              type="button"
+              onClick={nextProject}
+              className="project-nav-button project-nav-right"
+              aria-label="Next project"
+            >
+              <FaChevronRight />
+            </button>
 
           </div>
 
-          {/* NEXT BUTTON */}
+          <div className="projects-bottom">
+            <div className="projects-dots">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  aria-label={`Go to project ${index + 1}`}
+                  onClick={() => setCurrentProject(index)}
+                  className={index === currentProject ? "project-dot active" : "project-dot"}
+                />
+              ))}
+            </div>
 
-          <button
-            type="button"
-            onClick={nextProject}
-            className="project-nav-button project-nav-right"
-            aria-label="Next project"
-          >
-            <FaChevronRight />
-          </button>
-
+            <div className="projects-counter">
+              <span>{String(currentProject + 1).padStart(2, "0")}</span>
+              <span className="counter-divider">/</span>
+              <span>{String(totalProjects).padStart(2, "0")}</span>
+            </div>
+          </div>
         </div>
 
-        {/* ================= BOTTOM NAVIGATION ================= */}
-
-        <div className="projects-bottom">
-
-          {/* DOTS */}
-
-          <div className="projects-dots">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                aria-label={`Go to project ${index + 1}`}
-                onClick={() => setCurrentProject(index)}
-                className={
-                  index === currentProject
-                    ? "project-dot active"
-                    : "project-dot"
-                }
-              />
-            ))}
-          </div>
-
-          {/* COUNTER */}
-
-          <div className="projects-counter">
-            <span>
-              {String(currentProject + 1).padStart(2, "0")}
-            </span>
-
-            <span className="counter-divider">/</span>
-
-            <span>
-              {String(totalProjects).padStart(2, "0")}
-            </span>
-          </div>
-
+        {/* MOBILE - ALL PROJECTS SEPARATE */}
+        <div className="projects-mobile">
+          {projects.map((project, index) => (
+            <div className="mobile-project-card" key={project.title}>
+              <ProjectCard project={project} index={index} />
+            </div>
+          ))}
         </div>
 
       </div>
