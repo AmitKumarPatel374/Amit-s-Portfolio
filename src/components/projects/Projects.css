@@ -4,201 +4,147 @@
 
 .projects-section {
   position: relative;
+  min-height: 100vh;
+  padding: 110px 0 80px;
   background: #0b1120;
 }
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
 .projects-bg {
   background: #0b1120;
 }
 
 .projects-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
   background-size: 40px 40px;
 }
 
-.projects-glow {
-  position: absolute;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  filter: blur(180px);
-  pointer-events: none;
-}
-
-.projects-glow-left {
-  left: -300px;
-  top: -200px;
-  background: rgba(77, 142, 255, 0.1);
-}
-
-.projects-glow-right {
-  right: -300px;
-  bottom: -250px;
-  background: rgba(139, 92, 246, 0.1);
-}
 
 /* =========================================================
-   MAIN CONTAINER
+   CONTAINER
 ========================================================= */
 
 .projects-container {
   position: relative;
-
-  width: min(calc(100% - 64px), 1440px);
-
-  height: 100%;
-
+  width: min(calc(100% - 100px), 1380px);
+  min-height: calc(100vh - 190px);
   margin: 0 auto;
-
   display: flex;
-
-  align-items: center;
-
+  flex-direction: column;
   justify-content: center;
 }
+
 
 /* =========================================================
    HEADING
 ========================================================= */
 
 .projects-heading {
-  position: absolute;
-
-  top: 20px;
-
-  left: 50%;
-
-  z-index: 30;
-
-  transform: translateX(-50%);
-
+  position: relative;
+  z-index: 10;
+  margin-bottom: 35px;
   text-align: center;
-
-  white-space: nowrap;
 }
 
 .projects-heading h2 {
   margin: 0;
-
   color: white;
-
-  font-size: clamp(40px, 4vw, 58px);
-
+  font-size: clamp(36px,4vw,54px);
   font-weight: 700;
-
   line-height: 1;
-
   letter-spacing: -0.04em;
 }
 
 .projects-heading-line {
-  width: 80px;
-
-  height: 5px;
-
-  margin: 16px auto 0;
-
+  width: 70px;
+  height: 4px;
+  margin: 14px auto 0;
   border-radius: 999px;
-
-  background: linear-gradient(90deg, #2563eb, #9333ea);
+  background: linear-gradient(90deg,#2563eb,#9333ea);
 }
 
+
 /* =========================================================
-   OUTER PROJECT CARD
+   SLIDER
+========================================================= */
+
+.projects-slider {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   PROJECT FRAME
 ========================================================= */
 
 .projects-frame {
   position: relative;
-
-  width: 100%;
-
-  /*
-   * Reduced from 82vh.
-   * This is the main fix for hidden content.
-   */
-  height: 72vh;
-
-  max-height: 650px;
-
-  margin-top: 42px;
-
+  width: calc(100% - 130px);
+  height: min(620px,70vh);
+  min-height: 500px;
   overflow: hidden;
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  border-radius: 18px;
-
-  background: rgba(17, 24, 39, 0.82);
-
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
-
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 22px;
+  background: rgba(17,24,39,0.82);
+  box-shadow: 0 30px 100px rgba(0,0,0,0.35);
   backdrop-filter: blur(12px);
 }
 
 .projects-frame-inner {
-  position: relative;
-
   width: 100%;
-
   height: 100%;
 }
 
+
 /* =========================================================
-   PROJECT SCREEN
+   PROJECT CARD
 ========================================================= */
 
 .project-screen {
-  position: absolute;
-
-  inset: 0;
-
+  position: relative;
   width: 100%;
-
   height: 100%;
-
+  padding: 34px 42px;
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  /*
-   * Reduced padding so complete content fits.
-   */
-  padding: 28px 42px;
-
-  will-change: transform, opacity, filter;
-
-  /*
-   * Keep your working scroll animation.
-   */
-  transition:
-    opacity 0.12s linear,
-    filter 0.12s linear;
+  animation: projectAppear 0.4s ease;
 }
 
+@keyframes projectAppear {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 /* =========================================================
-   ORIGINAL PROJECT LAYOUT
+   PROJECT LAYOUT
 ========================================================= */
 
 .project-original-layout {
   width: 100%;
-
-  max-width: 1280px;
-
+  max-width: 1240px;
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.02fr)
-    minmax(0, 0.98fr);
-
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
   align-items: center;
-
-  gap: 38px;
+  gap: 42px;
 }
+
 
 /* =========================================================
    IMAGE
@@ -206,79 +152,96 @@
 
 .project-image-wrapper {
   position: relative;
-
   width: 100%;
-
-  max-width: 600px;
-
-  margin: 0 auto;
 }
 
 .project-browser {
   position: relative;
-
   z-index: 2;
-
   overflow: hidden;
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 17px;
-
   background: #111827;
-
-  box-shadow:
-    0 25px 65px rgba(0, 0, 0, 0.35),
-    0 0 65px rgba(77, 142, 255, 0.07);
-
-  transition:
-    transform 0.4s ease,
-    border-color 0.4s ease;
+  box-shadow: 0 25px 65px rgba(0,0,0,0.35);
+  transition: transform 0.35s ease,border-color 0.35s ease;
 }
 
 .project-browser:hover {
   transform: translateY(-5px);
-
-  border-color: rgba(173, 198, 255, 0.3);
+  border-color: rgba(173,198,255,0.3);
 }
+
+
+/* =========================================================
+   BROWSER HEADER
+========================================================= */
+
+.project-browser-header {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #171f2d;
+}
+
+.browser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.browser-red {
+  background: #ef4444;
+}
+
+.browser-yellow {
+  background: #facc15;
+}
+
+.browser-green {
+  background: #22c55e;
+}
+
+.browser-address {
+  flex: 1;
+  height: 16px;
+  margin-left: 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.035);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
 
 .project-main-image {
   display: block;
-
   width: 100%;
-
   aspect-ratio: 16 / 9;
-
   object-fit: cover;
-
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
 }
 
 .project-browser:hover .project-main-image {
-  transform: scale(1.035);
+  transform: scale(1.025);
 }
 
 .project-image-glow {
   position: absolute;
-
   z-index: 0;
-
   left: 10%;
-
   right: 10%;
-
-  bottom: -30px;
-
-  height: 100px;
-
+  bottom: -25px;
+  height: 90px;
   border-radius: 50%;
-
-  background: rgba(77, 142, 255, 0.14);
-
-  filter: blur(55px);
-
+  background: rgba(77,142,255,0.12);
+  filter: blur(50px);
   pointer-events: none;
 }
+
 
 /* =========================================================
    CONTENT
@@ -286,31 +249,69 @@
 
 .project-content {
   position: relative;
-
   z-index: 3;
-
   width: 100%;
-
-  max-width: 600px;
-
-  padding: 0;
+  max-width: 570px;
 }
 
-/* =========================================================
-   PROJECT LABEL
-========================================================= */
-
-.project-content .mb-5 {
-  margin-bottom: 12px;
-}
 
 /* =========================================================
-   FEATURED BADGE
+   PROJECT NUMBER
 ========================================================= */
 
-.project-content .mb-6 {
+.project-number {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 14px;
 }
+
+.project-number span {
+  color: #adc6ff;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+}
+
+.project-number div {
+  width: 45px;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+}
+
+
+/* =========================================================
+   FEATURED
+========================================================= */
+
+.project-featured {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 13px;
+  padding: 7px 12px;
+  border: 1px solid rgba(173,198,255,0.2);
+  border-radius: 999px;
+  background: rgba(173,198,255,0.08);
+}
+
+.project-featured span:first-child {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #adc6ff;
+}
+
+.project-featured span:last-child {
+  color: #adc6ff;
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 
 /* =========================================================
    TITLE
@@ -318,38 +319,26 @@
 
 .project-title {
   margin: 0;
-
   color: white;
-
-  /*
-   * Smaller than your previous 58px.
-   */
-  font-size: clamp(32px, 3.2vw, 48px);
-
+  font-size: clamp(30px,3.2vw,48px);
   font-weight: 700;
-
-  line-height: 1.02;
-
+  line-height: 1.05;
   letter-spacing: -0.035em;
-
-  text-wrap: balance;
 }
+
 
 /* =========================================================
    DESCRIPTION
 ========================================================= */
 
 .project-description {
-  max-width: 570px;
-
+  max-width: 560px;
   margin-top: 16px;
-
   color: #94a3b8;
-
   font-size: 14px;
-
-  line-height: 1.65;
+  line-height: 1.7;
 }
+
 
 /* =========================================================
    TECHNOLOGIES
@@ -357,46 +346,28 @@
 
 .project-technologies {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 7px;
-
-  max-width: 570px;
-
   margin-top: 16px;
 }
 
 .project-tech {
   padding: 6px 11px;
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 999px;
-
-  background: rgba(18, 24, 38, 0.8);
-
+  background: rgba(18,24,38,0.8);
   color: #cbd5e1;
-
   font-family: monospace;
-
   font-size: 10px;
-
-  line-height: 1.2;
-
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease;
+  transition: 0.25s ease;
 }
 
 .project-tech:hover {
-  border-color: rgba(173, 198, 255, 0.4);
-
-  background: rgba(173, 198, 255, 0.1);
-
+  border-color: rgba(173,198,255,0.4);
+  background: rgba(173,198,255,0.1);
   color: white;
 }
+
 
 /* =========================================================
    FEATURES
@@ -404,37 +375,27 @@
 
 .project-features {
   display: flex;
-
   flex-direction: column;
-
   gap: 7px;
-
   margin-top: 16px;
 }
 
 .project-feature {
   display: flex;
-
   align-items: flex-start;
-
   gap: 9px;
-
   color: #cbd5e1;
-
   font-size: 12px;
-
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .project-feature svg {
   flex-shrink: 0;
-
   margin-top: 2px;
-
   color: #adc6ff;
-
   font-size: 11px;
 }
+
 
 /* =========================================================
    BUTTONS
@@ -442,108 +403,117 @@
 
 .project-buttons {
   display: flex;
-
   flex-wrap: wrap;
-
-  align-items: center;
-
   gap: 10px;
-
   margin-top: 20px;
 }
 
 .project-button {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 9px;
-
-  min-width: 145px;
-
-  padding: 10px 18px;
-
+  min-width: 135px;
+  padding: 10px 17px;
   border-radius: 9px;
-
   font-size: 12px;
-
   font-weight: 600;
-
   text-decoration: none;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
+  transition: 0.25s ease;
 }
 
 .project-button:hover {
   transform: translateY(-3px);
-
-  box-shadow: 0 12px 30px rgba(77, 142, 255, 0.16);
+  box-shadow: 0 12px 30px rgba(77,142,255,0.14);
 }
 
 .project-button-primary {
   background: #adc6ff;
-
   color: #07111e;
 }
 
 .project-button-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
+  border: 1px solid rgba(255,255,255,0.1);
   background: #151b26;
-
   color: white;
 }
 
+
 /* =========================================================
-   NAVIGATION
+   PREVIOUS / NEXT BUTTONS
 ========================================================= */
 
-.projects-navigation {
+.project-nav-button {
   position: absolute;
+  top: 50%;
+  z-index: 20;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  background: rgba(17,24,39,0.9);
+  color: #cbd5e1;
+  font-size: 15px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  backdrop-filter: blur(10px);
+  transition: 0.25s ease;
+}
 
-  bottom: 20px;
+.project-nav-button:hover {
+  border-color: rgba(173,198,255,0.4);
+  background: rgba(173,198,255,0.1);
+  color: #adc6ff;
+  box-shadow: 0 10px 30px rgba(77,142,255,0.15);
+}
 
-  left: 50%;
+.project-nav-left {
+  left: 0;
+}
 
-  z-index: 30;
+.project-nav-right {
+  right: 0;
+}
 
-  transform: translateX(-50%);
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
+
+.projects-bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
 }
 
 .projects-dots {
   display: flex;
-
   align-items: center;
-
-  gap: 9px;
+  gap: 8px;
 }
 
 .project-dot {
-  width: 6px;
-
-  height: 6px;
-
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
   border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.2);
-
-  transition:
-    width 0.3s ease,
-    background 0.3s ease;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .project-dot.active {
-  width: 36px;
-
+  width: 34px;
   background: #adc6ff;
-
-  box-shadow: 0 0 14px rgba(173, 198, 255, 0.25);
+  box-shadow: 0 0 14px rgba(173,198,255,0.25);
 }
+
 
 /* =========================================================
    COUNTER
@@ -551,23 +521,12 @@
 
 .projects-counter {
   position: absolute;
-
-  right: 22px;
-
-  bottom: 19px;
-
-  z-index: 30;
-
+  right: 0;
   display: flex;
-
   align-items: center;
-
   color: #64748b;
-
   font-family: monospace;
-
   font-size: 11px;
-
   letter-spacing: 0.2em;
 }
 
@@ -577,27 +536,31 @@
 
 .counter-divider {
   margin: 0 7px;
-
   color: #334155;
 }
+
 
 /* =========================================================
    TABLET
 ========================================================= */
 
 @media (max-width: 1100px) {
+
+  .projects-section {
+    padding: 100px 0 70px;
+  }
+
   .projects-container {
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
   }
 
   .projects-frame {
-    height: 70vh;
-
-    max-height: 600px;
+    width: calc(100% - 90px);
+    height: 590px;
   }
 
   .project-screen {
-    padding: 24px 30px;
+    padding: 28px;
   }
 
   .project-original-layout {
@@ -605,407 +568,213 @@
   }
 
   .project-title {
-    font-size: 38px;
+    font-size: 36px;
   }
 
   .project-description {
     font-size: 13px;
-
-    line-height: 1.6;
   }
 
-  .project-feature {
-    font-size: 11px;
-  }
-
-  .project-buttons {
-    margin-top: 16px;
+  .project-features {
+    display: none;
   }
 }
 
+
 /* =========================================================
-   MOBILE PROJECTS
+   MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
-  /* -----------------------------------------
-     SECTION
-  ----------------------------------------- */
 
   .projects-section {
-    height: auto !important;
     min-height: auto;
-    overflow: hidden;
+    padding: 85px 0 60px;
   }
-
-  .projects-section .sticky {
-    position: relative !important;
-    top: auto !important;
-    height: auto !important;
-    min-height: auto;
-    overflow: visible !important;
-  }
-
-  /* -----------------------------------------
-     MAIN CONTAINER
-  ----------------------------------------- */
 
   .projects-container {
-    width: 100%;
-    height: auto;
+    width: calc(100% - 28px);
     min-height: auto;
-
-    margin: 0;
-    padding: 85px 14px 60px;
-
     display: block;
   }
 
-  /* -----------------------------------------
-     HEADING
-  ----------------------------------------- */
-
   .projects-heading {
-    position: relative;
-
-    top: auto;
-    left: auto;
-
-    transform: none;
-
-    width: 100%;
-
-    margin: 0 0 28px;
-
-    text-align: center;
-
-    white-space: normal;
+    margin-bottom: 25px;
   }
 
   .projects-heading h2 {
-    margin: 0;
-
     font-size: 34px;
-    line-height: 1.05;
-
-    letter-spacing: -0.04em;
   }
 
   .projects-heading-line {
-    width: 60px;
-    height: 4px;
-
-    margin: 12px auto 0;
+    width: 55px;
+    height: 3px;
+    margin-top: 11px;
   }
 
-  /* -----------------------------------------
-     OUTER FRAME
-  ----------------------------------------- */
+  .projects-slider {
+    display: block;
+  }
 
   .projects-frame {
     width: 100%;
-
     height: auto;
-    max-height: none;
-
-    margin: 0;
-
-    overflow: visible;
-
-    border: none;
-    border-radius: 0;
-
-    background: transparent;
-
-    box-shadow: none;
-
-    backdrop-filter: none;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 18px;
   }
-
-  .projects-frame-inner {
-    position: relative;
-
-    width: 100%;
-    height: auto;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 20px;
-  }
-
-  /* -----------------------------------------
-     EACH PROJECT = SEPARATE CARD
-  ----------------------------------------- */
 
   .project-screen {
-    position: relative !important;
-
-    inset: auto !important;
-
     width: 100%;
     height: auto;
-
-    min-height: auto;
-
+    min-height: 0;
+    padding: 16px;
     display: block;
-
-    padding: 18px;
-
-    margin: 0;
-
-    opacity: 1 !important;
-
-    transform: none !important;
-
-    filter: none !important;
-
-    pointer-events: auto !important;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    border-radius: 20px;
-
-    background: linear-gradient(145deg, rgba(18, 24, 38, 0.98), rgba(11, 17, 32, 0.98));
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-
-    transition:
-      transform 0.3s ease,
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
+    animation: projectAppear 0.3s ease;
   }
-
-  .project-screen:hover {
-    transform: translateY(-3px) !important;
-
-    border-color: rgba(173, 198, 255, 0.25);
-
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
-  }
-
-  /* -----------------------------------------
-     PROJECT CONTENT LAYOUT
-  ----------------------------------------- */
 
   .project-original-layout {
-    width: 100%;
-
     display: flex;
     flex-direction: column;
-
     gap: 18px;
   }
 
-  /* -----------------------------------------
-     IMAGE
-  ----------------------------------------- */
-
   .project-image-wrapper {
     width: 100%;
-
-    max-width: none;
-
-    margin: 0;
   }
 
   .project-browser {
-    width: 100%;
-
-    border-radius: 13px;
-
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
   }
 
-  .project-browser > div:first-child {
-    height: 30px !important;
-
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-
-    gap: 6px !important;
+  .project-browser-header {
+    height: 30px;
+    gap: 5px;
+    padding: 0 10px;
   }
 
-  .project-browser > div:first-child span {
-    width: 7px !important;
-    height: 7px !important;
+  .browser-dot {
+    width: 6px;
+    height: 6px;
   }
 
-  .project-browser > div:first-child div {
-    margin-left: 8px !important;
-    height: 12px !important;
+  .browser-address {
+    height: 11px;
+    margin-left: 7px;
   }
 
   .project-main-image {
-    width: 100%;
-
     aspect-ratio: 16 / 9;
-
-    object-fit: cover;
   }
 
   .project-image-glow {
     display: none;
   }
 
-  /* -----------------------------------------
-     CONTENT
-  ----------------------------------------- */
-
   .project-content {
-    width: 100%;
-
     max-width: none;
-
-    padding: 0;
   }
 
-  /* -----------------------------------------
-     PROJECT NUMBER
-  ----------------------------------------- */
-
-  .project-content .mb-5 {
-    margin-bottom: 10px;
+  .project-number {
+    margin-bottom: 9px;
   }
 
-  .project-content .mb-5 span {
-    font-size: 10px;
-
-    letter-spacing: 0.25em;
-  }
-
-  .project-content .mb-5 div {
-    width: 35px;
-  }
-
-  /* -----------------------------------------
-     FEATURED BADGE
-  ----------------------------------------- */
-
-  .project-content .mb-6 {
-    margin-bottom: 10px;
-  }
-
-  .project-content .mb-6 {
-    padding: 7px 11px;
-
-    border-radius: 999px;
-  }
-
-  .project-content .mb-6 span:last-child {
+  .project-number span {
     font-size: 9px;
-
-    letter-spacing: 0.18em;
   }
 
-  /* -----------------------------------------
-     TITLE
-  ----------------------------------------- */
+  .project-number div {
+    width: 30px;
+  }
+
+  .project-featured {
+    margin-bottom: 10px;
+    padding: 6px 9px;
+  }
+
+  .project-featured span:last-child {
+    font-size: 8px;
+  }
 
   .project-title {
-    margin: 0;
-
-    font-size: 28px;
-
+    font-size: 26px;
     line-height: 1.08;
-
-    letter-spacing: -0.035em;
-
-    text-wrap: balance;
   }
-
-  /* -----------------------------------------
-     DESCRIPTION
-  ----------------------------------------- */
 
   .project-description {
-    margin-top: 11px;
-
-    max-width: 100%;
-
-    font-size: 13px;
-
-    line-height: 1.65;
-
-    color: #94a3b8;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.6;
   }
 
-  /* -----------------------------------------
-     TECHNOLOGIES
-  ----------------------------------------- */
-
   .project-technologies {
-    max-width: 100%;
-
-    margin-top: 13px;
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 6px;
+    margin-top: 12px;
+    gap: 5px;
   }
 
   .project-tech {
-    padding: 5px 9px;
-
-    font-size: 9px;
-
-    border-radius: 999px;
+    padding: 5px 8px;
+    font-size: 8.5px;
   }
-
-  /* -----------------------------------------
-     FEATURES
-  ----------------------------------------- */
 
   .project-features {
     display: none;
   }
 
-  /* -----------------------------------------
-     BUTTONS
-  ----------------------------------------- */
-
   .project-buttons {
-    width: 100%;
-
-    margin-top: 17px;
-
-    display: flex;
-
+    margin-top: 15px;
     flex-direction: column;
-
-    gap: 8px;
+    gap: 7px;
   }
 
   .project-button {
     width: 100%;
-
     min-width: 0;
-
-    padding: 10px 14px;
-
-    border-radius: 10px;
-
-    font-size: 12px;
+    padding: 10px;
+    font-size: 11px;
   }
 
-  /* -----------------------------------------
-     HIDE DESKTOP NAVIGATION
-  ----------------------------------------- */
+  /* Mobile arrows */
 
-  .projects-navigation,
+  .project-nav-button {
+    top: auto;
+    bottom: -60px;
+    width: 38px;
+    height: 38px;
+    font-size: 12px;
+    transform: none;
+  }
+
+  .project-nav-left {
+    left: 8px;
+  }
+
+  .project-nav-right {
+    right: 8px;
+  }
+
+  .projects-bottom {
+    margin-top: 78px;
+  }
+
   .projects-counter {
-    display: none;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 48px;
+    font-size: 10px;
   }
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
 @media (max-width: 400px) {
+
   .projects-container {
-    padding-left: 10px;
-    padding-right: 10px;
+    width: calc(100% - 20px);
   }
 
   .projects-heading h2 {
@@ -1013,41 +782,39 @@
   }
 
   .project-screen {
-    padding: 14px;
-    border-radius: 17px;
-  }
-
-  .project-original-layout {
-    gap: 15px;
+    padding: 13px;
   }
 
   .project-title {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .project-description {
-    font-size: 12px;
-    line-height: 1.6;
+    font-size: 11.5px;
   }
 
   .project-tech {
-    font-size: 8.5px;
-    padding: 5px 8px;
+    font-size: 8px;
+    padding: 4px 7px;
   }
 }
+
 
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .project-screen {
-    transition: none !important;
+    animation: none;
   }
 
+  
   .project-browser,
   .project-main-image,
-  .project-button {
-    transition: none !important;
+  .project-button,
+  .project-nav-button {
+    transition: none;
   }
 }
