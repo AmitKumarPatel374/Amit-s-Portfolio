@@ -71,6 +71,7 @@
 }
 
 @keyframes bgFloat1 {
+
   0%,
   100% {
     transform: translateY(0);
@@ -82,6 +83,7 @@
 }
 
 @keyframes bgFloat2 {
+
   0%,
   100% {
     transform: translateY(0);
@@ -327,13 +329,13 @@
      CARD HEADER
   ------------------------------------------------------- */
 
-  .experience-card > div:first-child {
+  .experience-card>div:first-child {
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
   }
 
-  .experience-card > div:first-child span:last-child {
+  .experience-card>div:first-child span:last-child {
     font-size: 12px;
   }
 
@@ -351,7 +353,7 @@
      DESCRIPTION
   ------------------------------------------------------- */
 
-  .experience-card > p {
+  .experience-card>p {
     font-size: 14px;
     line-height: 1.75;
   }
@@ -424,7 +426,7 @@
     padding: 0 4px;
   }
 
-  .experience-heading > span {
+  .experience-heading>span {
     font-size: 10px;
     letter-spacing: 0.22em;
   }
@@ -476,17 +478,17 @@
      CARD TOP
   ------------------------------------------------------- */
 
-  .experience-card > div:first-child {
+  .experience-card>div:first-child {
     gap: 8px;
   }
 
-  .experience-card > div:first-child span:first-child {
+  .experience-card>div:first-child span:first-child {
     padding: 7px 11px;
     font-size: 9px;
     letter-spacing: 0.13em;
   }
 
-  .experience-card > div:first-child span:last-child {
+  .experience-card>div:first-child span:last-child {
     font-size: 11px;
   }
 
@@ -504,7 +506,7 @@
      DESCRIPTION
   ------------------------------------------------------- */
 
-  .experience-card > p {
+  .experience-card>p {
     margin-top: 12px;
     font-size: 13px;
     line-height: 1.7;
@@ -604,6 +606,7 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .experience-heading,
   .timeline-item,
   .timeline-dot,

@@ -93,9 +93,8 @@ const Experience = () => {
             return (
               <div
                 key={item.title}
-                className={`timeline-item relative mb-28 flex ${
-                  isLeft ? "lg:justify-start" : "lg:justify-end"
-                }`}
+                className={`timeline-item relative mb-28 flex ${isLeft ? "lg:justify-start" : "lg:justify-end"
+                  }`}
               >
                 {/* ================= Timeline Dot ================= */}
 
